@@ -4,12 +4,10 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
 
-### More Information
-
-A place to include any other types of information that you'd like to include about yourself.
+Malware, Reversing, CVE, Vulnerabilities...
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+Eveheeero [xhve00000@gmail.com]((mailto:xhve00000@gmail.com) [Github](https://github.com/Eveheeero)
+Foliv0ra [bradypus404@gmail.com](mailto:bradypus404@gmail.com) [Github](https://github.com/bradypus404)
