@@ -6,7 +6,7 @@ layout: none
   <channel>
     <title>{{ site.name | xml_escape }}</title>
     <description>{{ site.description | xml_escape }}</description>
-    <link>https://eveheeero.github.io</link>
+    <link>{{ site.url }}</link>
     <atom:link href="{{ site.url }}/feed.xml" rel="self" type="application/rss+xml" />
 	<lastBuildDate>{% for post in site.posts limit:1 %}{{ post.date | date_to_rfc822 }}{% endfor %}</lastBuildDate>
 	{% for post in site.posts limit:10 %}
@@ -21,8 +21,8 @@ layout: none
             <description>{{ post.content | xml_escape }}</description>
         {% endif %}
         <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-        <link>https://eveheeero.github.io{{ post.url }}</link>
-        <guid isPermaLink="true">https://eveheeero.github.io{{ post.url }}</guid>
+        <link>{{ site.url }}{{ post.url }}</link>
+        <guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
       </item>
     {% endfor %}
   </channel>
