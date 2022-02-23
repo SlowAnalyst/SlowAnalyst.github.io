@@ -6,9 +6,16 @@ title: C/C++ Library
 
 C와 C++에 대한 라이브러리는 다음과 같은 곳에서 찾아볼 수 있다.
 
-> C 표준 - [위키피디아 영어](https://en.wikipedia.org/wiki/C_standard_library) [위키피디아 한글](https://ko.wikipedia.org/wiki/C_%ED%91%9C%EC%A4%80_%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC) [POSIX 라이브러리](https://en.wikipedia.org/wiki/C_POSIX_library) [cplusplus](https://www.cplusplus.com/reference/clibrary/)
+> C 표준
+> * [위키피디아 영어](https://en.wikipedia.org/wiki/C_standard_library)
+> * [위키피디아 한글](https://ko.wikipedia.org/wiki/C_%ED%91%9C%EC%A4%80_%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC)
+> * [POSIX 라이브러리](https://en.wikipedia.org/wiki/C_POSIX_library)
+> * [cplusplus](https://www.cplusplus.com/reference/clibrary/)
 
-> C++ 표준 - [위키피디아 영어](https://en.wikipedia.org/wiki/C%2B%2B_Standard_Library) [위키피디아 한글](https://ko.wikipedia.org/wiki/C%2B%2B_%ED%91%9C%EC%A4%80_%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC) [cplusplus](https://www.cplusplus.com/reference/)
+> C++ 표준
+> * [위키피디아 영어](https://en.wikipedia.org/wiki/C%2B%2B_Standard_Library)
+> * [위키피디아 한글](https://ko.wikipedia.org/wiki/C%2B%2B_%ED%91%9C%EC%A4%80_%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC)
+> * [cplusplus](https://www.cplusplus.com/reference/)
 
 
 
