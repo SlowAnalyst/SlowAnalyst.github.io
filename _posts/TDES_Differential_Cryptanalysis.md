@@ -113,8 +113,10 @@ TDES에 대한 차등 암호분석
 해당하는 입출력 차이를 다룰 것이다. 이 두 값은 다음 식으로 표현될 수 있다.
 
 <pre><code>
-	64(probability 1): X1 &oplus; X2 = 000000 &rArr; SR(X1) &oplus; SR(X2) = 0000    --- (1)
-	48(probability 0.75): X1 &oplus; X2 = 001000 &rArr; SR(X1) &oplus; SR(X2) = 0010 --- (2)
+	64(probability 1): X1 &oplus; X2 = 000000 &rArr; SR(X1) &oplus; SR(X2)
+			= 0000    --- (1)
+	48(probability 0.75): X1 &oplus; X2 = 001000 &rArr; SR(X1) &oplus; SR(X2)
+			= 0010 --- (2)
 
 	단, SR()은 오른쪽 Sbox 연산
 </code></pre>
