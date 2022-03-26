@@ -113,10 +113,8 @@ TDES에 대한 차등 암호분석
 해당하는 입출력 차이를 다룰 것이다. 이 두 값은 다음 식으로 표현될 수 있다.
 
 <pre><code>
-	64(probability 1): X1 &oplus; X2 = 000000 &rArr; SR(X1) &oplus; SR(X2)
-							= 0000    --- (1)
-	48(probability 0.75): X1 &oplus; X2 = 001000 &rArr; SR(X1) &oplus; SR(X2)
-							= 0010 --- (2)
+	64(probability 1): X1 &oplus; X2 = 000000 &rArr; SR(X1) &oplus; SR(X2) = 0000    --- (1)
+	48(probability 0.75): X1 &oplus; X2 = 001000 &rArr; SR(X1) &oplus; SR(X2) = 0010 --- (2)
 
 	단, SR()은 오른쪽 Sbox 연산
 </code></pre>
@@ -154,7 +152,7 @@ TDES 확장 연산을 수행하는 함수) 의 오른쪽 절반 비트들이다.
 
 <pre><code>
 	(E(X1) &oplus; K) &oplus; (E(X2) &oplus; K) = E(X1 &oplus; X2)
-								= 000000 000010 ---  (5)
+					= 000000 000010 ---  (5)
 </code></pre>
 
 위 식에서
@@ -200,18 +198,18 @@ P &oplus; P_ = 0x0002
 인 평문 P, P_에 대해 위 식을 여러 회전에 적용시키면 다음을 얻는다.
 
 <pre><code>
-	P &oplus; P_ = 0x0002 &rArr; (L0 &oplus; F(R0, K1)) &oplus; (L_0 &oplus; F(	R_0, K1)) = 0x02 = R1 &oplus; R_1
-							L1 = R0, L_1 = R_0
-							&there4; (L1, R1) &oplus; (L_1, R_1) = 0x0202 (Prob 0.75)
+	P &oplus; P_ = 0x0002 &rArr; (L0 &oplus; F(R0, K1)) &oplus; (L_0 &oplus; F(R_0, K1)) = 0x02 = R1 &oplus; R_1
+				L1 = R0, L_1 = R_0
+				&there4; (L1, R1) &oplus; (L_1, R_1) = 0x0202 (Prob 0.75)
 	P1 &oplus; P_1 = 0x0202 &rArr; (L1 &oplus; F(R1, K2)) &oplus; (L_1 &oplus; F(R_1, K2)) = 0x00 = R2 &oplus; R_2
-							L2 = R1, L_2 = R_1
-							&there4; (L2, R2) &oplus; (L_2, R_2) = 0x0200 (Prob (0.75)^2)
+				L2 = R1, L_2 = R_1
+				&there4; (L2, R2) &oplus; (L_2, R_2) = 0x0200 (Prob (0.75)^2)
 	P2 &oplus; P_2 = 0x0200 &rArr; (L2 &oplus; F(R2, K3)) &oplus; (L_2 &oplus; F(R_2, K3)) = 0x02 = R3 &oplus; R_3
-							L3 = R2, L_3 = R_2
-							&there4; (L3, R3) &oplus; (L_3, R_3) = 0x0002 (Prob (0.75)^2)
+				L3 = R2, L_3 = R_2
+				&there4; (L3, R3) &oplus; (L_3, R_3) = 0x0002 (Prob (0.75)^2)
 	P3 &oplus; P_3 = 0x0002 &rArr; (L3 &oplus; F(R3, K4)) &oplus; (L_3 &oplus; F(R_3, K4)) = 0x02 = R4 &oplus; R_4 <br>
-							L4 = R3, L_4 = R_3 <br>
-							&there4; (L4, R4) &oplus; (L_4, R_4) = 0x0002 (Prob (0.75)^3)
+				L4 = R3, L_4 = R_3 <br>
+				&there4; (L4, R4) &oplus; (L_4, R_4) = 0x0002 (Prob (0.75)^3)
 	&there4; P4 &oplus; P_4 = C &oplus; C_ = 0x0202
 </code></pre>
 
