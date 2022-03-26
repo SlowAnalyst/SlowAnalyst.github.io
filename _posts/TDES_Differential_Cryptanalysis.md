@@ -112,12 +112,12 @@ TDES에 대한 차등 암호분석
 값은 16으로 앞의 두 값에 비해 상당히 작다. 그러므로 여기서는 64와 48에
 해당하는 입출력 차이를 다룰 것이다. 이 두 값은 다음 식으로 표현될 수 있다.
 
-<hr/>
-	64(probability 1): X1 &oplus; X2 = 000000 &rArr; SR(X1) &oplus; SR(X2) = 0000    --- (1) <br>
+<pre><code>
+	64(probability 1): X1 &oplus; X2 = 000000 &rArr; SR(X1) &oplus; SR(X2) = 0000    --- (1)
 	48(probability 0.75): X1 &oplus; X2 = 001000 &rArr; SR(X1) &oplus; SR(X2) = 0010 --- (2)
 
 	단, SR()은 오른쪽 Sbox 연산
-<hr/>
+</code></pre>
 
 위 결과는 (1)이 항상 성립하고, (2)는 75% 확률로 성립한다는 것을 의미한다.
 (1)이 꼭 오른쪽 Sbox에서만 성립하는 것은 아니며, 그렇기 때문에 왼쪽 Sbox에도
@@ -134,143 +134,84 @@ TDES 확장 연산을 수행하는 함수) 의 오른쪽 절반 비트들이다.
 이다. 그러므로 XOR 연산의 결과값이 0x0002인 평문 쌍을 선택해야 한다. 이러한
 평문 쌍을 P, P_ 라고 하고, 각각의 왼쪽 절반 비트 집합을 L, L_, 오른쪽 절반 비트 집합을 R, R_이라고 하자. 그럼 다음 식이 성립한다.
 
-<hr/>
+<pre><code>
 	P &oplus; P_ = (L, R) &oplus; (L_, R_) = 0x0002 --- (3)
-<hr/>
+</code></pre>
 
 그리고 TDES의 라운드 함수를 F()라고 하고, Sbox 연산을 수행하는 함수를 S(),
 확장 연산을 수행하는 함수를 E()라고 하면 다음 식이 성립한다.
 
-<hr/>
+<pre><code>
 	F(R, K) &oplus; F(R_, K) = S(E(R) &oplus; K) &oplus; S(E(R_) &oplus; K) --- (4)
 
 	단, K는 TDES 키
-<hr/>
+</code></pre>
 
 여기서 확장 연산은 선형 연산이므로 X1 &oplus; X2 = 0x02인 입력 X1, X2에 대해 다음이
 성립한다.
 
-<hr/>
-	<style>
-		table, tr, td {
-			border:1px solid white;
-		}
-		#cell{
-			vertical-align: top;
-		}
-	</style>
-	<table>
-		<tr>
-			<td id="cell">
-					(E(X1) &oplus; K) &oplus; (E(X2) &oplus; K) <br><br>
-					단, K는 TDES 키
-			</td>
-			<td id="cell">
-       	    	= E(X1 &oplus; X2) <br>
-			  	= 000000 000010 ---  (5)
-			</td>
-		</tr>
-	</table>
-<hr/>
+<pre><code>
+	(E(X1) &oplus; K) &oplus; (E(X2) &oplus; K) = E(X1 &oplus; X2)
+								= 000000 000010 ---  (5)
+</code></pre>
 
-위 식에서 Z1 = E(X1) &oplus; K, Z2 = E(X2) &oplus; K라고 하면
-Z1 &oplus; Z2 = 000000 000010이고, 오른쪽 절반 비트의 차이는 000010이다. Z1과 Z2의
+위 식에서
+Z1 = E(X1) &oplus; K, Z2 = E(X2) &oplus; K
+라고 하면
+Z1 &oplus; Z2 = 000000 000010
+이고, 오른쪽 절반 비트의 차이는 000010이다. Z1과 Z2의
 왼쪽 절반, 오른쪽 절반 비트를 각각 ZL1과 ZL2, ZR1과 ZR2라고 하면 다음이
 성립한다.
 
-<hr/>
-	ZL1 &oplus; ZL2 = 000000 --- (6) <br>
+<pre><code>
+	ZL1 &oplus; ZL2 = 000000 --- (6)
 	ZR1 &oplus; ZR2 = 000010 --- (7)
-<hr/>
+</code></pre>
 
 위 식에서 ZL1, ZL2는 왼쪽 Sbox, ZR1, ZR2는 오른쪽 Sbox에 대한 입력이 된다.
 그리고 (1)에 의해
 
-<hr/>
+<pre><code>
 	SL(ZL1) &oplus; SL(ZL2) = 0000 --- (8)
-<hr/>
+</code></pre>
 
 가 항상 성립한다고 말할 수 있고, (2)에 의해
 
-<hr/>
+<pre><code>
 	SR(ZR1) &oplus; SR(ZR2) = 0010 --- (9)
-<hr/>
+</code></pre>
 
 가 성립할 확률이 0.75라고 말할 수 있다. 따라서 위 결과와 (4)에 의해
 
-<hr/>
+<pre><code>
 	F(R, K) &oplus; F(R_, K) = 0000 0010 --- (10)
-<hr/>
+</code></pre>
 
 가 성립할 확률은 0.75이 된다. 정리하면 다음과 같다.
 
-<hr/>
-	R &oplus; R_ = 0x02 => F(R, K) &oplus; F(R_, K) = 0x02 (Prob 0.75)
-<hr/>
+<pre><code>
+	R &oplus; R_ = 0x02 &rArr; F(R, K) &oplus; F(R_, K) = 0x02 (Prob 0.75)
+</code></pre>
 
 이로써 한 회전에 대한 식을 얻었다. 이제 이를 여러 회전에 연결시켜야 한다.
 P &oplus; P_ = 0x0002
 인 평문 P, P_에 대해 위 식을 여러 회전에 적용시키면 다음을 얻는다.
 
-<hr/>
-	<style>
-		table, tr, td {
-			border:0px solid white;
-		}
-		#cell{
-			vertical-align: top;
-		}
-	</style>
-	<table>
-		<tr>
-			<td id="cell">
-				P &oplus; P_ = 0x0002 &rArr;
-			</td>
-			<td id="cell">
-				(L0 &oplus; F(R0, K1)) &oplus; (L_0 &oplus; F(R_0, K1)) = 0x02 = R1 &oplus; R_1 <br>
-				L1 = R0, L_1 = R_0 <br>
-				&there4; (L1, R1) &oplus; (L_1, R_1) = 0x0202 (Prob 0.75)
-			</td>
-		</tr>
-		<tr>
-			<td id="cell">
-				P1 &oplus; P_1 = 0x0202 &rArr;
-			</td>
-			<td id="cell">
-				(L1 &oplus; F(R1, K2)) &oplus; (L_1 &oplus; F(R_1, K2)) = 0x00 = R2 &oplus; R_2 <br>
-				L2 = R1, L_2 = R_1 <br>
-				&there4; (L2, R2) &oplus; (L_2, R_2) = 0x0200 (Prob (0.75)^2)
-			</td>
-		</tr>
-		<tr>
-			<td id="cell">
-				P2 &oplus; P_2 = 0x0200 &rArr;
-			</td>
-			<td id="cell">
-				(L2 &oplus; F(R2, K3)) &oplus; (L_2 &oplus; F(R_2, K3)) = 0x02 = R3 &oplus; R_3 <br>
-				L3 = R2, L_3 = R_2 <br>
-				&there4; (L3, R3) &oplus; (L_3, R_3) = 0x0002 (Prob (0.75)^2)
-			</td>
-		</tr>
-		<tr>
-			<td id="cell">
-				P3 &oplus; P_3 = 0x0002 &rArr;
-			</td>
-			<td id="cell">
-				(L3 &oplus; F(R3, K4)) &oplus; (L_3 &oplus; F(R_3, K4)) = 0x02 = R4 &oplus; R_4 <br>
-				L4 = R3, L_4 = R_3 <br>
-				&there4; (L4, R4) &oplus; (L_4, R_4) = 0x0002 (Prob (0.75)^3)
-			</td>
-		</tr>
-		<tr>
-			<td id="cell">
-				&there4; P4 &oplus; P_4 = C &oplus; C_ = 0x0202
-			</td>
-			<td>
-			</td>
-		</tr>
-	</table>
-<hr/>
+<pre><code>
+	P &oplus; P_ = 0x0002 &rArr; (L0 &oplus; F(R0, K1)) &oplus; (L_0 &oplus; F(	R_0, K1)) = 0x02 = R1 &oplus; R_1
+							L1 = R0, L_1 = R_0
+							&there4; (L1, R1) &oplus; (L_1, R_1) = 0x0202 (Prob 0.75)
+	P1 &oplus; P_1 = 0x0202 &rArr; (L1 &oplus; F(R1, K2)) &oplus; (L_1 &oplus; F(R_1, K2)) = 0x00 = R2 &oplus; R_2
+							L2 = R1, L_2 = R_1
+							&there4; (L2, R2) &oplus; (L_2, R_2) = 0x0200 (Prob (0.75)^2)
+	P2 &oplus; P_2 = 0x0200 &rArr; (L2 &oplus; F(R2, K3)) &oplus; (L_2 &oplus; F(R_2, K3)) = 0x02 = R3 &oplus; R_3
+							L3 = R2, L_3 = R_2
+							&there4; (L3, R3) &oplus; (L_3, R_3) = 0x0002 (Prob (0.75)^2)
+	P3 &oplus; P_3 = 0x0002 &rArr; (L3 &oplus; F(R3, K4)) &oplus; (L_3 &oplus; F(R_3, K4)) = 0x02 = R4 &oplus; R_4 <br>
+							L4 = R3, L_4 = R_3 <br>
+							&there4; (L4, R4) &oplus; (L_4, R_4) = 0x0002 (Prob (0.75)^3)
+	&there4; P4 &oplus; P_4 = C &oplus; C_ = 0x0202
+</code></pre>
 
 ### 보조키 비트 복구 알고리즘
 앞에서 차등 암호분석을 여러 회전에 적용시켰다. 이제 이로부터 키 비트를
@@ -278,32 +219,32 @@ P &oplus; P_ = 0x0002
 P4, P_4 뿐이라는 것을 기억하자. 복구 알고리즘을 작성하기 위한 첫 번째는
 암호문 비트만으로 구성된 식을 유도하는 것이다. 먼저 다음 두 식을 보도록 하자.
 
-<hr/>
+<pre><code>
 	R4 = L3 &oplus; F(R3, K4) --- (11) <br>
 	R_4 = L_3 &oplus; F(R_3, K4) --- (12)
-<hr/>
+</code></pre>
 
 여기서 L4 = R3, L_4 = R_3이므로
 
-<hr/>
+<pre><code>
 	R4 = L3 &oplus; F(L4, K4) --- (13) <br>
 	R_4 = L_3 &oplus; F(L_4, K4) --- (14)
-<hr/>
+</code></pre>
 
 이 성립한다. 그리고 앞의 적용결과에서
 L3 &oplus; L_3 = 0x00
 이었으므로 L3 = L_3 이다. 따라서 다음이 성립한다.
 
-<hr/>
+<pre><code>
 	R4 &oplus; F(L4, K4) = R_4 &oplus; F(L_4, K4) --- (15)
-<hr/>
+</code></pre>
 
 위 식에서 알려지지 않은 것은 K4 뿐이며, 이에 앞의 여러 회전에 적용한 결과를
 대입해보면
 
-<hr/>
+<pre><code>
 	R_4 &oplus; R_4 = F(L4, K4) &oplus; F(L_4, K4) = 0000 0010 Prob .75 (&because; L4 &oplus; L_4 = 0x02) --- (16)
-<hr/>
+</code></pre>
 
 임을 알 수 있다. 이때 왼쪽 Sbox는 (1)을 따르고 오른쪽 Sbox는 (2)를 따른다.
 그러므로 위 식은
@@ -316,27 +257,27 @@ L4, L_4를 각각 L4[0,1,2,3,4,5,6,7], L_4[0,1,2,3,4,5,6,7]이라고 정의하�
 된다. 그리고 L4[2,3,5,7]은 L4의 왼쪽에서 2, 3, 5, 7번째 비트를 이어붙인
 것이다. 이를 바탕으로 (16)를 다시 쓰면 다음과 같다.
 
-<hr/>
+<pre><code>
 	(SL(L4[4,7,2,1,5,7] &oplus; K[0,2,3,4,5,7]), SR(L4[0,2,6,5,0,3] &oplus; K[13,14,15,9,10,11])) &oplus; (SL(L_4[4,7,2,1,5,7] &oplus; K[0,2,3,4,5,7]), SR(L_4[0,2,6,5,0,3] &oplus; K[13,14,15,9,10,11])) = 0000 0010 --- (17)
 
 	단, L4[6] != L_4[6]
-<hr/>
+</code></pre>
 
 (17)에서 왼쪽 Sbox는 다음과 같이 정리된다.
 
-<hr/>
+<pre><code>
 	(SL(L4[4,7,2,1,5,7] &oplus; K[0,2,3,4,5,7])) &oplus; (SL(L_4[4,7,2,1,5,7] &oplus; K[0,2,3,4,5,7])) = 0000 --- (18)
 
 	단, L4[6] != L_4[6]
-<hr/>
+</code></pre>
 
 위 식에서 L4[i] = L_4[i] (단, i != 6) 이므로 (1)에 의해 항상 성립한다. 따라서
 (18)에서는 K4에 대한 어떤 정보도 얻을 수 없다. 이는 왼쪽 Sbox가 차이라는
 관점에서 비활성화되었음을 보인다. 한편, 오른쪽 Sbox는 다음과 같이 정리된다.
 
-<hr/>
+<pre><code>
 	SR(L4[0,2,6,5,0,3] &oplus; K[13,14,15,9,10,11])) &oplus; SR(L_4[0,2,6,5,0,3] &oplus; K[13,14,15,9,10,11])) = 0010 --- (19)
-<hr/>
+</code></pre>
 
 P &oplus; P_ = 0x0002, C &oplus; C_ = 0x0202
 를 만족시키는 평문, 암호문 쌍에 대해 (19)는
@@ -347,19 +288,19 @@ P &oplus; P_ = 0x0002, C &oplus; C_ = 0x0202
 동작을 확인하기 위해 "http://www.hanb.co.kr/exam/1427" 에서 제공하는 평문,
 암호문 쌍을 사용하였다. 그 결과로 다음 네 개의 키가 최대의 경우의 수를 가졌다.
 
-<hr/>
+<pre><code>
 K[13,14,15,9,10,11] = 0x13 = 010011 --- (20) <br>
 K[13,14,15,9,10,11] = 0x1b = 011011 --- (21) <br>
 K[13,14,15,9,10,11] = 0x22 = 100010 --- (22) <br>
 K[13,14,15,9,10,11] = 0x2a = 101010 --- (23)
-<hr/>
+</code></pre>
 
 식 (20), (21), (22), (23)은 다음과 같이 쓸 수 있다.
 
-<hr/>
+<pre><code>
 K[13,14,9,10,11] = 01011 --- (24) <br>
 K[13,14,9,10,11] = 10010 --- (25)
-<hr/>
+</code></pre>
 
 ### 키 비트를 모두 복구하는 방법
 앞에서 보조키 비트 일부를 얻어내었지만, 키를 완전히 복구하기 위해서는 나머지 2^11의
