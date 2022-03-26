@@ -114,9 +114,9 @@ TDES에 대한 차등 암호분석
 
 <pre><code>
 	64(probability 1): X1 &oplus; X2 = 000000 &rArr; SR(X1) &oplus; SR(X2)
-			= 0000    --- (1)
+							= 0000    --- (1)
 	48(probability 0.75): X1 &oplus; X2 = 001000 &rArr; SR(X1) &oplus; SR(X2)
-			= 0010 --- (2)
+							= 0010 --- (2)
 
 	단, SR()은 오른쪽 Sbox 연산
 </code></pre>
