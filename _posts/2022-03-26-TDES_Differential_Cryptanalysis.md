@@ -4,12 +4,19 @@ title: TDES_Differential_Cryptanalysis
 ---
 
 > 차등 암호분석 개요
+> 
 > TDES의 Sbox 차이 분석
+> 
 > 입출력값의 차이를 선택하는 방법
+> 
 > TDES의 차등 암호분석
+> 
 > 보조키 비트 복구 알고리즘
+> 
 > 키 비트를 모두 복구하는 방법
+> 
 > 블록암호 설계원칙
+> 
 > Reference
 
 ### 차등 암호분석 개요
