@@ -50,10 +50,10 @@ title: TDES Differential Cryptanalysis
  그럼 TDES의 유일한 비선형 요소인 Sbox의 입출력 차이를 살펴보자. Sbox를
 다음과 같이 분석하면 유용한 입력 차이를 얻을 수 있다. 각각의 가능한 입력 X에
 대해
-	X = X1 &oplus; X2 (단, &oplus;는 XOR 연산)
+	X = X1 ^ X2 (단, ^는 XOR 연산)
 를 만족하는 모든 쌍 (X1, X2)를
 찾고 해당하는 출력 차이
-	Y = Y1 &oplus; Y2
+	Y = Y1 ^ Y2
 를 계산한다. 여기서 Y1 = Sbox(X1), Y2 = Sbox(X2)이다. 이 결과를 표로 정리하면
 가장 편향된 출력 차이를 만들어내는 입력 값을 찾을 수 있다. 
 
@@ -133,10 +133,10 @@ title: TDES Differential Cryptanalysis
 해당하는 입출력 차이를 다룰 것이다. 이 두 값은 다음 식으로 표현될 수 있다.
 
 ```
-	64(probability 1): X1 &oplus; X2 = 000000 &rArr; SR(X1) &oplus; SR(X2) = 0000    --- (1)
-	48(probability 0.75): X1 &oplus; X2 = 001000 &rArr; SR(X1) &oplus; SR(X2) = 0010 --- (2)
+64(probability 1): X1 ^ X2 = 000000 => SR(X1) ^ SR(X2) = 0000    --- (1)
+48(probability 0.75): X1 ^ X2 = 001000 => SR(X1) ^ SR(X2) = 0010 --- (2)
 
-	단, SR()은 오른쪽 Sbox 연산
+@ SR()은 오른쪽 Sbox 연산
 ```
 
 위 결과는 (1)이 항상 성립하고, (2)는 75% 확률로 성립한다는 것을 의미한다.
