@@ -207,7 +207,7 @@ P &oplus; P_ = 0x0002
 	P2 &oplus; P_2 = 0x0200 &rArr; (L2 &oplus; F(R2, K3)) &oplus; (L_2 &oplus; F(R_2, K3)) = 0x02 = R3 &oplus; R_3
 				L3 = R2, L_3 = R_2
 				&there4; (L3, R3) &oplus; (L_3, R_3) = 0x0002 (Prob (0.75)^2)
-	P3 &oplus; P_3 = 0x0002 &rArr; (L3 &oplus; F(R3, K4)) &oplus; (L_3 &oplus; F(R_3, K4)) = 0x02 = R4 &oplus; R_4 <br>
+	P3 &oplus; P_3 = 0x0002 &rArr; (L3 &oplus; F(R3, K4)) &oplus; (L_3 &oplus; F(R_3, K4)) = 0x02 = R4 &oplus; R_4
 				L4 = R3, L_4 = R_3
 				&there4; (L4, R4) &oplus; (L_4, R_4) = 0x0002 (Prob (0.75)^3)
 	&there4; P4 &oplus; P_4 = C &oplus; C_ = 0x0202
