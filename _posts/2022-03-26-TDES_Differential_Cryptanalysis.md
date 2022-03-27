@@ -3,9 +3,6 @@ layout: post
 title: TDES_Differential_Cryptanalysis
 ---
 
-TDES에 대한 차등 암호분석
-========================
-
 ### 차등 암호분석 개요
  차등 암호분석(Differential Cryptanalysis)은 DES를 분석하기 위해
 개발되었으므로, DES 범주 내에서 검토해보자. Sbox를 제외한 DES의 다른 모든
