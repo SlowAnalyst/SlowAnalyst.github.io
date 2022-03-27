@@ -1,3 +1,8 @@
+---
+layout: post
+title: TDES_Differential_Cryptanalysis
+---
+
 TDES에 대한 차등 암호분석
 ========================
 
