@@ -1,7 +1,8 @@
 ---
 layout: post
-title: TDES_Differential_Cryptanalysis
+title: TDES Differential Cryptanalysis
 ---
+
 
 > 차등 암호분석 개요
 > 
@@ -19,7 +20,6 @@ title: TDES_Differential_Cryptanalysis
 > 
 > Reference
 
-<!-- more -->
 
 ### 차등 암호분석 개요
  차등 암호분석(Differential Cryptanalysis)은 DES를 분석하기 위해
