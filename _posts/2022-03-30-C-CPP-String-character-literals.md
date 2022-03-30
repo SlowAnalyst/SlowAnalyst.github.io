@@ -71,3 +71,5 @@ std::wstring Mystr3 = LR"(This is "REALLY" std::wstring)"s;
 > 혹은 안전을 위해 사용할 수 없다면 MSDN의 wcstombs_s을 사용할 수 있다. [MSDN](<https://docs.microsoft.com/ko-kr/cpp/c-runtime-library/reference/wcstombs-s-wcstombs-s-l?view=msvc-170>)
 >
 > wcstombs_s(size_t *pReturnValue, char *dest, size_t sizeOfDest, wchar_t *source, size_t size); pReturnValue는 반환된 문자열의 크기를 넣기 위한 포인터이다.
+>
+> wcstombs -> wide character stream to multi bytes stream(sequence)인것같다?
