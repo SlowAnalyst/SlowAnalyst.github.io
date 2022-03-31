@@ -211,16 +211,16 @@ P &oplus; P_ = 0x0002
 
 <pre><code>
 	P &oplus; P_ = 0x0002 &rArr; (L0 &oplus; F(R0, K1)) &oplus; (L_0 &oplus; F(	R_0, K1)) = 0x02 = R1 &oplus; R_1
-		L1 = R0, L_1 = R_0
-		&there4; (L1, R1) &oplus; (L_1, R_1) = 0x0202 (Prob 0.75)
+		                L1 = R0, L_1 = R_0
+						&there4; (L1, R1) &oplus; (L_1, R_1) = 0x0202 (Prob 0.75)
 	P1 &oplus; P_1 = 0x0202 &rArr; (L1 &oplus; F(R1, K2)) &oplus; (L_1 &oplus; F(R_1, K2)) = 0x00 = R2 &oplus; R_2
-		L2 = R1, L_2 = R_1
-		&there4; (L2, R2) &oplus; (L_2, R_2) = 0x0200 (Prob (0.75)^2)
+		                L2 = R1, L_2 = R_1
+		                &there4; (L2, R2) &oplus; (L_2, R_2) = 0x0200 (Prob (0.75)^2)
 	P2 &oplus; P_2 = 0x0200 &rArr; (L2 &oplus; F(R2, K3)) &oplus; (L_2 &oplus; F(R_2, K3)) = 0x02 = R3 &oplus; R_3
-		L3 = R2, L_3 = R_2
-		&there4; (L3, R3) &oplus; (L_3, R_3) = 0x0002 (Prob (0.75)^2)
+		                L3 = R2, L_3 = R_2
+		                &there4; (L3, R3) &oplus; (L_3, R_3) = 0x0002 (Prob (0.75)^2)
 	P3 &oplus; P_3 = 0x0002 &rArr; (L3 &oplus; F(R3, K4)) &oplus; (L_3 &oplus; F(R_3, K4)) = 0x02 = R4 &oplus; R_4 <br>
-		L4 = R3, L_4 = R_3 <br>
-		&there4; (L4, R4) &oplus; (L_4, R_4) = 0x0002 (Prob (0.75)^3)
-	&there4; P4 &oplus; P_4 = C &oplus; C_ = 0x0202
+		                L4 = R3, L_4 = R_3 <br>
+		                &there4; (L4, R4) &oplus; (L_4, R_4) = 0x0002 (Prob (0.75)^3)
+	                    &there4; P4 &oplus; P_4 = C &oplus; C_ = 0x0202
 </code></pre>
