@@ -163,8 +163,9 @@ TDES 확장 연산을 수행하는 함수) 의 오른쪽 절반 비트들이다.
 성립한다.
 
 <pre><code>
-	(E(X1) &oplus; K) &oplus; (E(X2) &oplus; K) = E(X1 &oplus; X2)
-								= 000000 000010 ---  (5)
+	(E(X1) &oplus; K) &oplus; (E(X2) &oplus; K) = E(X1) &oplus; E(X2)
+	                  = E(X1 &oplus; X2)
+					  = 000000 000010 ---  (5)
 </code></pre>
 
 위 식에서
