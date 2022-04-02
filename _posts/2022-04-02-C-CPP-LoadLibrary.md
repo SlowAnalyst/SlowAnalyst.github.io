@@ -20,7 +20,7 @@ LoadLibrary로 dll파일의 주소를 적어줘, DLL을 로드하고 메모리�
 
 > 함수의 이름을 알 수 없는경우 함수 내부 번호를 이용해 MAKEINTRESOURCE(ordinal)을 대신 넣어주면 되는 것 같다. 확인필요
 
-![DLL을 사용한 함수의 결과값](<https://eveheeero-github-io.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fb2afa580-46f6-40e9-84c6-9707082e350e%2FUntitled.png?table=block&id=bf40fc08-4b64-469b-b831-381d06a3ee05&spaceId=c2eb73c4-6260-4fb7-8470-2e07bff25e55&width=2000&userId=&cache=v2> "DLL을 사용한 함수의 결과값")
+![DLL을 사용한 함수의 결과값](<https://eveheeero-github-io.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F9e0c9957-096d-4956-ab97-e7be87c73fe5%2FUntitled.png?table=block&id=5f320ab0-be6b-49be-9059-83f07cdef242&spaceId=c2eb73c4-6260-4fb7-8470-2e07bff25e55&width=2000&userId=&cache=v22> "DLL을 사용한 함수의 결과값")
 
 추가적으로 검색하다 알게 된 내용인데 다음과 같은 방법으로도 함수를 불러올 수 있는 모양이다.
 
