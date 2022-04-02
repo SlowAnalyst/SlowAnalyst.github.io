@@ -74,14 +74,72 @@ _______________________________________________________
 분기하도록 스택을 구성하는 페이로드를 작성해야 한다. 그러나 [2, p. 18]이
 제시하는 스택 프레임 레이아웃과 [4, p. 36]이 제시하는 스택 프레임
 레이아웃은 정렬 단위를 제외하고는 같으므로 호출된 함수 시점의 리턴 주소의
-위치는 x86에서의 것과 동일하다. 예를 들어 다음 페이로드를 살펴보자.
+위치는 x86에서의 것과 동일하다.
+
+예를 들어 다음 페이로드를 살펴보자.
 <pre><code>
+[ buffer fill-up(*)     ]
+[ Gadget (pop rdi; ret) ] -> return address of a caller
+[ GOT entry of puts()   ]
+[ PLT entry of puts()   ]
+[ main() address        ] -> return address of a callee
+</code></pre>
+먼저 함수가 리턴하는 시점에서 스택 포인터는 가젯을 가리키게 되어 명령
+포인터는 스택에서 꺼내어진 가젯 주소를 저장하게 된다. 이때 스택은 다음과
+같은 상태가 된다.
+<pre><code>
+(LOW)
+...
+[ buffer fill-up(*)     ]
+[ Gadget (pop rdi; ret) ]
+[ GOT entry of puts()   ] <= stack pointer
+[ PLT entry of puts()   ]
+[ main() address        ]
+...
+(HIGH)
+</code></pre>
+이제 가젯의 pop rdi;가 실행되어 puts() 함수의 GOT 엔트리 주소가 스택에서
+꺼내어져 %rdi 레지스터에 저장된다.
+<pre><code>
+(LOW)
+...
+[ buffer fill-up(*)     ]
+[ Gadget (pop rdi; ret) ]
+[ GOT entry of puts()   ]
+[ PLT entry of puts()   ] <= stack pointer
+[ main() address        ]
+...
+(HIGH)
+</code></pre>
+그다음으로 가젯의 ret가 실행된다. 따라서 puts() 함수의 PLT 엔트리 주소가
+스택에서 꺼내어져 명령 포인터에 저장된다.
+<pre><code>
+(LOW)
+...
 [ buffer fill-up(*)     ]
 [ Gadget (pop rdi; ret) ]
 [ GOT entry of puts()   ]
 [ PLT entry of puts()   ]
-[ main() address        ]
+[ main() address        ] <= stack pointer
+...
+(HIGH)
 </code></pre>
+마지막으로 스택을 정리하며 puts() 함수로 점프하여 puts() 함수를 위한
+스택 프레임을 구성한다. 여기서 main() 함수의 주소는 [2, p. 18]이
+제시한 스택 프레임 레이아웃에 비추어보면 리턴 주소가 된다.
+<pre><code>
+(LOW)
+...
+[                       ]
+[                       ]
+[                       ]
+[                       ] <= base pointer, stack pointer
+[ main() address        ] <= return address
+...
+(HIGH)
+</code></pre>
+
+그럼 앞의 예시에서와 같은 가젯은 어디서 찾을 수 있을까?
 
 # Reference
 [1] Sandra Loosemore et al., The GNU C Library Reference
