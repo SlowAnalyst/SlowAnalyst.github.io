@@ -16,6 +16,8 @@ title: TDES Differential Cryptanalysis
 > 키 비트를 모두 복구하는 방법
 >
 > 블록암호 설계원칙
+>
+> Reference
 
 # 차등 암호분석 개요
  차등 암호분석(Differential Cryptanalysis)은 DES를 분석하기 위해
