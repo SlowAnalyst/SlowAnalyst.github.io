@@ -10,6 +10,10 @@ title: Format String, and Ret2libc in AMD64
 > Reference
 
 # Format String
+ [5]는 형식 문자열 취약점을 사용할 수 있게 된다면, 공격자가 원하는 곳에
+어떤 값이든 쓸 수 있는 길로 안내한다고 설명하고 있다. 즉, 임의 메모리
+쓰기가 가능한 것이다. 여기서는 AMD64 시스템에서 형식 문자열 취약점이
+발생할 수 있는 이유를 설명할 것이다.
  [1, p. 286]은 템플릿 (또는 형식 문자열) 내에 있는 형식 특정자의 동작을
 기술한다. 그리고 그것은 형식 특정자가 형식 문자열 다음에 나오는
 호출 매개 변수들이 포맷된 후에 출력되도록 만든다는 것이다. 여기서 '포맷된
@@ -80,7 +84,7 @@ _______________________________________________________
 조각이므로 ELF 파일 또는 링크된 동적 라이브러리의 오브젝트 코드에서
 동일한 조각을 찾아야 한다. 예를 들어 다음은 한 실행 파일을 objdump로
 출력한 결과이다. pop rdi; ret라는 가젯을 찾을 수 있겠는가?
-<pre><code>
+```assembly
 ...
  40090a:    5b        pop %rbx
  40090b:    5d        pop %rbp
@@ -90,7 +94,7 @@ _______________________________________________________
  400912:    41 5f     pop %r15
  400914:    c3        retq
 ...
-</code></pre>
+```
 위 어셈블리 코드를 보았을 때는 여기서 얻고자 하는 가젯인 pop rdi; ret는
 없어 보인다. 그러나 실제로 어셈블리 코드가 실행되는 것은 아니라는 것을
 명심하자. 실제로 CPU의 동작을 결정하는 것은 헥스 코드로 표현되는 기계어이다.
@@ -177,3 +181,7 @@ Issue 58 Phile 4, 2001
 [4] System V Application Binary Interface IntelI386 Architecture
 Processor Supplement Fourth Edition, The Santa Cruz Operation, Inc.,
 1997
+
+[5] gera, "Advances in format string exploitation",
+"http://phrack.org/issues/59/7.html", Phrack Volume 11 Issue 59
+Phile 7, 2002
