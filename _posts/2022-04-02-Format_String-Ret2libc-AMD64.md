@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Format String, and Ret2libc in AMD64
+title: Format String and Ret2libc in AMD64
 ---
 
 > Format String
