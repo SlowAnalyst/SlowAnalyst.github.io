@@ -14,4 +14,7 @@ ptmalloc (pthreads malloc) 으로부터 파생되었고, 그것은 dlmalloc
 
  이제 본 글에서 자주 사용되는 용어들을 정의할 것이다.
 
-* Arena: 
+* Arena:
+* Heap:
+* Chunk:
+* Memory:
