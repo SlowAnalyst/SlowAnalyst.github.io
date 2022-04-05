@@ -3,6 +3,10 @@ layout: post
 title: GNU malloc internals
 ---
 
+> 개요
+>
+> Malloc 개요
+
 # Malloc 개요
  GNU C 라이브러리의 malloc 라이브러리는 어플리케이션의 주소 공간에서
 할당된 메모리를 관리하는 몇 개의 함수를 가진다. Glibc malloc은
