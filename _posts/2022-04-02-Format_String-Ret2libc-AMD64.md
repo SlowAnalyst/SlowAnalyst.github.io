@@ -9,7 +9,7 @@ title: Format String Vulnerability and Ret2libc Attack in AMD64
 >
 > Reference
 
-# Format String
+# Format String Vulnerability
  [5]는 형식 문자열 취약점을 사용할 수 있게 된다면, 공격자가 원하는 곳에
 어떤 값이든 쓸 수 있는 길로 안내한다고 설명하고 있다. 즉, 임의 메모리
 쓰기가 가능한 것이다. 여기서는 AMD64 시스템에서 형식 문자열 취약점이
@@ -43,7 +43,7 @@ printf(buf);
 따라서 스택으로부터 호출 매개 변수의 값을 얻게된다. 이는 공격자가
 임의의 메모리에서 읽기와 쓰기를 지시할 수 있음을 의미한다.
 
-# Ret2libc
+# Ret2libc Attack
  Ret2libc (Return-to-Libc) 공격은 [3]에서 서술하듯이, 실행 불가능 스택을
 우회하기 위해 주로 사용되고, x86과 같은 시스템에서는 다음과 같은 페이로드를
 사용하여 수행하게 된다.
@@ -166,7 +166,7 @@ _______________________________________________________
 (HIGH)
 </code></pre>
 
-# Reference
+# References
 [1] Sandra Loosemore et al., The GNU C Library Reference
 Manual, GNU Press a division of the Free Software Foundation,
 2021
