@@ -17,7 +17,7 @@ title: TDES Differential Cryptanalysis
 >
 > 블록암호 설계원칙
 >
-> Reference
+> References
 
 # 차등 암호분석 개요
  차등 암호분석(Differential Cryptanalysis)은 DES를 분석하기 위해
@@ -350,7 +350,7 @@ XOR 연산의 특성을 이용하여 한 회전에 대한 암호분석을 완성
 차등 암호분석을 통해 더욱 작아졌고 이에 전수키 조사가 가능했던 것이다. 따라서
 블록암호가 요구하는 키 공간은 충분히 커야 할 것이다.
 
-# Reference
+# References
 [1] Mark Stamp, "Information Security: Principles and Practice",
 Wiley-Interscience, Inc.
 

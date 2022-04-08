@@ -7,7 +7,7 @@ title: Format String Vulnerability and Ret2libc Attack in AMD64
 >
 > Ret2libc Attack
 >
-> Reference
+> References
 
 # Format String Vulnerability
  [5]는 형식 문자열 취약점을 사용할 수 있게 된다면, 공격자가 원하는 곳에
