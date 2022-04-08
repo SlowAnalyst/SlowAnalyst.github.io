@@ -3,9 +3,9 @@ layout: post
 title: Format String Vulnerability and Ret2libc Attack in AMD64
 ---
 
-> Format String
+> Format String Vulnerability
 >
-> Ret2libc
+> Ret2libc Attack
 >
 > Reference
 
