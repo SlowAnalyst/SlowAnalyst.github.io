@@ -92,7 +92,7 @@ bk_nextsize 포인터가 사용되지 않을 것이고, 청크가 충분히 크�
 chunk [   payload    ]
 |     [              ]
 v     [              ]
--     [ size  ][ AMP ]
+-     [ size  ][ AMP ] P = 1
 
         free된 청크
       [  prev_size   ] <- mchunkptr
@@ -103,8 +103,15 @@ chunk [ fd_nextsize  ] -> large chunks only
 |     [  bk_nextsize ] -> large chunks only
 |     [  ...          ]
 v     [  prev_size   ] -> same as size
--     [ size  ][ AMP ]
-		
+-     [ size  ][ AMP ] P = 0
+</code></pre>
+여기서 청크가 메모리에서 서로 인접하므로, 만약 첫 번째 청크 (가장 낮은
+주소를 가지는) 의 주소를 안다면, 힙에 존재하는 모든 청크를 size 정보를
+이용하여 접근할 수 있다. 하지만 주소를 증가시키는 연산만을 사용해야 하고,
+마지막 청크를 감지하는 것은 어려울 수 있다.
+
+ 할당된 힙들은 항상 2의 제곱의 주소로 정렬된다. 즉, 
+
 # References
 [1] CarlosODonell et al., MallocInternals,
 https://sourceware.org/glibc/wiki/MallocInternals, 2022
