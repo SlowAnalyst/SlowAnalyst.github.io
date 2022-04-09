@@ -12,6 +12,7 @@ title: Windows Explorer reset size by Registry
 
 > \\HKEY_CURRENT_USER\\Software\\Classes\\Local Settings\\Software\\Microsoft\\Windows\\Shell\\Bags\\AllFolders\\Shell
 >> (혹은 \\HKEY_CLASSES_ROOT\\Local Settings\\Software\\Microsoft\\Windows\\Shell\\Bags\\AllFolders\\Shell 과 비슷하다.)
+>
 > \\HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Modules\\GlobalSettings\\Sizer
 
 ![\\HKEY_CURRENT_USER\\Software\\Classes\\Local Settings\\Software\\Microsoft\\Windows\\Shell\\Bags\\AllFolders\\Shell의 내용](<https://eveheeero-github-io.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fba65d508-0336-43ed-adbf-c66f078019eb%2FUntitled.png?table=block&id=613500e3-9c6f-4a70-b599-66136631f319&spaceId=c2eb73c4-6260-4fb7-8470-2e07bff25e55&width=2000&userId=&cache=v2> "다음과 같은 값을 지워주면 된다.")
