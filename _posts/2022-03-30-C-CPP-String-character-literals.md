@@ -4,7 +4,7 @@ title: C/C++ 문자 리터럴
 ---
 
 
-C와 C++의 String 혹은 문자열에 대한 리터럴은 해당 링크에서 확인할 수 있다.
+> C와 C++의 String 혹은 문자열에 대한 리터럴은 해당 링크에서 확인할 수 있다.
 
 ## [마이크로소프트 MSDN](<https://docs.microsoft.com/ko-kr/cpp/cpp/string-and-character-literals-cpp?view=msvc-170>)
 
