@@ -88,7 +88,7 @@ bk_nextsize 포인터가 사용되지 않을 것이고, 청크가 충분히 크�
       [  prev_size   ] <- mchunkptr
 -     [ size  ][ AMP ]
 ^     [              ] <- returned by malloc
-|     [               ]
+|     [              ]
 chunk [   payload    ]
 |     [              ]
 v     [              ]
@@ -98,10 +98,10 @@ v     [              ]
       [  prev_size   ] <- mchunkptr
 -     [ size  ][ AMP ]
 ^     [ fwd          ] <- returned by malloc
-|     [    bck        ]
+|     [    bck       ]
 chunk [ fd_nextsize  ] -> large chunks only
 |     [  bk_nextsize ] -> large chunks only
-|     [  ...          ]
+|     [  ...         ]
 v     [  prev_size   ] -> same as size
 -     [ size  ][ AMP ] P = 0
 </code></pre>
