@@ -84,6 +84,7 @@ free된 청크의 마지막 워드는 청크 크기가 복사된 것이다 (이�
 bk_nextsize 포인터가 사용되지 않을 것이고, 청크가 충분히 크다면 결국
 충분한 공간이 있는 것이기 때문이다.
 <pre><code>
+        이미 사용 중인 청크
       [  prev_size   ] <- mchunkptr
 -     [ size  ][ AMP ]
 ^     [              ] <- returned by malloc
