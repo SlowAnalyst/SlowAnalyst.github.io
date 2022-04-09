@@ -93,7 +93,18 @@ chunk [   payload    ]
 |     [              ]
 v     [              ]
 -     [ size  ][ AMP ]
- 
+
+        free된 청크
+      [  prev_size   ] <- mchunkptr
+-     [ size  ][ AMP ]
+^     [ fwd          ] <- returned by malloc
+|     [    bck        ]
+chunk [ fd_nextsize  ] -> large chunks only
+|     [  bk_nextsize ] -> large chunks only
+|     [  ...          ]
+v     [  prev_size   ] -> same as size
+-     [ size  ][ AMP ]
+		
 # References
 [1] CarlosODonell et al., MallocInternals,
 https://sourceware.org/glibc/wiki/MallocInternals, 2022
