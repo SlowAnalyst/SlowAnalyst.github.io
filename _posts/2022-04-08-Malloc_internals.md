@@ -87,9 +87,9 @@ bk_nextsize 포인터가 사용되지 않을 것이고, 청크가 충분히 크�
       [  prev_size   ] <- mchunkptr
 -     [ size  ][ AMP ]
 ^     [              ] <- returned by malloc
-|       [                     ]]
+|     [                     ]]
 chunk [   payload    ]
-|       [              ]
+|     [              ]
 v     [              ]
 -     [ size  ][ AMP ]
  
