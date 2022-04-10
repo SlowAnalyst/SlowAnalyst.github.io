@@ -110,7 +110,14 @@ v     [  prev_size   ] -> same as size
 이용하여 접근할 수 있다. 하지만 주소를 증가시키는 연산만을 사용해야 하고,
 마지막 청크를 감지하는 것은 어려울 수 있다.
 
- 할당된 힙들은 항상 2의 제곱의 주소로 정렬된다. 즉, 
+ 할당된 힙들은 항상 2의 제곱의 주소로 정렬된다. 즉, 청크가 할당된 힙에
+존재할 때 (i.e. A 비트가 셋트일 때) 그 힙을 위한 heap_info의 주소는
+청크의 주소를 기반으로 계산될 수 있다.
+<pre><code>
+mchunkptr -> 0x7ffa6b3414123dc0
+             |     |                |max   |
+             0x7ffa6b3414000000 -> heap_info *
+</code></pre>
 
 # References
 [1] CarlosODonell et al., MallocInternals,
