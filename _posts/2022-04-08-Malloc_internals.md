@@ -7,7 +7,11 @@ title: Malloc 함수의 동작
 >
 > MallocInternals 번역
 >
-> 
+>> Malloc의 개요
+>>
+>> Chunk는 무엇인가?
+>>
+>> Arenas와 Heaps
 
 # 개요
  본 글은 [1]의 번역을 통해 malloc 함수의 동작을 살펴본다.
@@ -119,7 +123,7 @@ mchunkptr -> 0x7ffa6b3414123dc0
              0x7ffa6b3414000000 -> heap_info *
 </code></pre>
 
-## 아레나와 힙
+## Arenas와 Heaps
  멀티 스레드 어플리케이션을 효율적으로 다루기 위해 glibc의 malloc은
 메모리의 다수 영역이 활성화되는 것을 허용한다. 즉, 다른 스레드가 서로 영향을
 주지 않으면서 다른 메모리의 영역에 접근할 수 있다. 이러한 메모리의 영역들은
