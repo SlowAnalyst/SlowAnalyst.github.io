@@ -115,7 +115,7 @@ v     [  prev_size   ] -> same as size
 청크의 주소를 기반으로 계산될 수 있다.
 <pre><code>
 mchunkptr -> 0x7ffa6b3414123dc0
-             |     |   ||max   |
+             |     |    |max   |
              0x7ffa6b3414000000 -> heap_info *
 </code></pre>
 
