@@ -62,7 +62,7 @@ Git daemon은 기본적으로 인증 절차가 없기 때문.
 
 > 다음과 같은 방법으로 /etc/systemd/system/git-daemon.service 파일을 작성한다.
 >>
-```text
+>> ```text
 [Unit]
 Description=Start Git Daemon
 
@@ -81,7 +81,7 @@ Group=git(그룹)
 
 [Install]
 WantedBy=multi-user.target
-```
+>> ```
 >
 > 이후 systemctl enable git-daemon명령을 통해서 활성화를 시킬 수 있다. (우분투 14.04 이전버전이면 홈페이지에 기재된 방법 사용)
 
