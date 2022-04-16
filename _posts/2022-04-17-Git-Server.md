@@ -1,7 +1,6 @@
 ---
 layout: post
 title: 나만의 Git서버 만들기
-published: true
 ---
 
 
