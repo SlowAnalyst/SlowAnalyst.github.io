@@ -20,7 +20,7 @@ title: 나만의 Git서버 만들기
 
 > git init --bare (???.git등의 형태로 만든 빈 볼더 안에서) (관례상으로 서버용 깃 폴더는 .git으로 끝나기 때문이다.)
 >
-> git clone https://github.com/(사용자 이름)/(레포지토리 이름) --bare
+> git clone <https://github.com/>(사용자 이름)/(레포지토리 이름) --bare
 
 위와 같은 형태로 --bare옵션을 넣어주는 형태로 깃을 설정할 시, 작업들을 저장할 수 있는 작업 폴더가 생성된다.
 
