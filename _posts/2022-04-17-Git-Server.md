@@ -42,11 +42,11 @@ title: 나만의 Git서버 만들기
 
 홈 폴더에 있는 레포지토리를 클론하기 위해선 ssh://git@homepage/~/example.git 등의 방법을 사용해야한다.
 
->> 좀 더 편하게 ssh를 이용하기 위해선 rsa키를 설정해서 이용하는것이 좋다.
->>
->> 그것이 아니라면 ssh에 비밀번호를 이용하여 접근할 수 있는지 확인하는것은 필수다.
->>
->> 다음과 같은 방법을 사용했는데 오류가 나타난다면 해당 유저가 레포지토리 폴더에 접근할 수 있는지 확인하라. (폴더의 권한이나 사용자, 그룹설정 등)
+> 좀 더 편하게 ssh를 이용하기 위해선 rsa키를 설정해서 이용하는것이 좋다.
+>
+> 그것이 아니라면 ssh에 비밀번호를 이용하여 접근할 수 있는지 확인하는것은 필수다.
+>
+> 다음과 같은 방법을 사용했는데 오류가 나타난다면 해당 유저가 레포지토리 폴더에 접근할 수 있는지 확인하라. (폴더의 권한이나 사용자, 그룹설정 등)
 
 ----
 
@@ -63,22 +63,29 @@ Git daemon은 기본적으로 인증 절차가 없기 때문.
 > 다음과 같은 방법으로 /etc/systemd/system/git-daemon.service 파일을 작성한다.
 >>
 >> [Unit]
+>>
 >> Description=Start Git Daemon
 >>
 >> [Service]
+>>
 >> ExecStart=/usr/bin/git(깃 실행파일 주소) daemon --reuseaddr --base-path=/srv/git/(깃 저장소 폴더) /srv/git/(깃 저장소 폴더)
 >>
 >> Restart=always
+>>
 >> RestartSec=500ms
 >>
 >> StandardOutput=syslog
+>>
 >> StandardError=syslog
+>>
 >> SyslogIdentifier=git-daemon (service명령어를 볼 때 사용되는 듯 하다)
 >>
 >> User=git(사용자)
+>>
 >> Group=git(그룹)
 >>
 >> [Install]
+>>
 >> WantedBy=multi-user.target
 >
 > 이후 systemctl enable git-daemon명령을 통해서 활성화를 시킬 수 있다. (우분투 14.04 이전버전이면 홈페이지에 기재된 방법 사용)
