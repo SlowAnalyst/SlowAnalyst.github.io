@@ -4,7 +4,7 @@ title: C/C++ LoadLibrary
 ---
 
 
-## LoadLibrary는 윈도우에서 사용자가 만든 DLL파일을 불러오는 함수이다.
+## LoadLibrary는 윈도우에서 사용자가 만든 DLL파일을 불러오는 함수이다
 
 LoadLibrary를 사용하여 동적 라이브러리인 DLL파일을 불러와, 내부에 존재하는 함수를 사용할 수 있다.
 
