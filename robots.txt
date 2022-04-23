@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://eveheeero.github.io/sitemap.xml
+Sitemap: https://veheeero.github.io/sitemap.xml
