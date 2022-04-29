@@ -146,9 +146,30 @@ operations)으로 이루어질 수 있고 아레나를 잠글 (lock) 필요는 �
 스레드는 서로를 기다릴 필요가 없는 것이다. 스레드는 성능과 관련된 것이 요구한다면
 자동적으로 사용되지 않고 있는 (잠기지 않은, unlocked) 아레나로 전환할 것이다.
 
- 각 아레나는 
+ 각 아레나는 하나 또는 다수의 힙으로부터 메모리를 얻는다. 메인 아레나는
+프로그램의 초기 힙을 (.bss 바로 뒤에서 시작하는 et al) 사용한다. 추가적인
+아레나는 메모리를 mmap을 통해 생성한 힙으로부터, 오래된 힙들이 다 사용되는
+경우에 추가적인 힙을 리스트에 추가하면서, 얻는다. 각 아레나는 특별한 맨 위에
+있는 청크 (top chunk)를 추적하는데 이는 전형적으로 사용가능한 가장 큰 청크이고,
+가장 최근에 할당된 힙을 의미하기도 한다.
+
+ 할당된 아레나를 위한 메모리는 편의성을 위해 아레나의 초기 힙으로부터 얻어진다.
+ 
+<pre><code>
+        Heap #1             Heap #2            Heap #3
+	 _               |--------------------|
+ 	/ [ ar_ptr  ]----+---[ ar_ptr   ]<--+ +-[  ar_ptr    ]
+   /  [         ]<---|---[  prev    ]   |---[  prev      ]
+heap  [ prev    ]--+ |   [  size    ]       [  size      ]
+info  [size     ]  | |   [  ....    ]       [   ...      ]
+ 	\_[ ...     ]  - |   [   chunks ]       [  chunks    ]
+	  [ arena   ]<---+                      [            ]
+	  [         ]-------------------------->["top" chunk ]
+	  [ chunks  ]
+	
+</code></pre>
 
 # References
-[1] CarlosODonell et al., MallocInternals, glibc wiki, 2022.
+[1] Carlos Donell et al., MallocInternals, glibc wiki, 2022.
 [Online]. Available: https://sourceware.org/glibc/wiki/MallocInternals,
 [Accessed Apr. 08, 2022]
