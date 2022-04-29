@@ -212,7 +212,16 @@ ar_ptr--->[   mutex   ]  |-->[   chunk   ]  |-->[  chunk  ]
   +-------------------------------------------------------------------+
   +-------------------------------------------------------------------+
 </code></pre>
+주의: 위 (와 아래)의 다이어그램에서, 모든 포인터는 "chunk"(mchunkptr)를 가리킨다.
+Bins는 청크가 아니므로 (그들은 fwd/bck의 배열이다), 한 hack이 사용되어
+mchunkptr의 fwd, bck 필드가 적합한 bin에 접근하는데 사용될 수 있도록 bins를
+"그저 적절히" 덮어쓰는 mchunkptr을 chunk-like 객체에 제공한다.
 
+Large 청크에서 "가장 적절한 것("best fit")"을 찾아야 하기 때문에, large 청크들은
+추가적인 이중으로-연결된 리스트를 가지며 이는 리스트에서 각 크기 필드를 연결하고,
+청크들은 크기에 따라 큰 것에서 작은 것으로 정렬된다. 이는 충분한 크기를 가지는
+첫 번째 청크를 malloc이 빠르게 검색할 수 있도록 만든다. 이때 주어진 크기에서 다수의
+청크
 # References
 [1] Carlos Donell et al., MallocInternals, glibc wiki, 2022.
 [Online]. Available: https://sourceware.org/glibc/wiki/MallocInternals,
