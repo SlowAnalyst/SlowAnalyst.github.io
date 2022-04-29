@@ -127,8 +127,28 @@ mchunkptr -> 0x7ffa6b3414123dc0
  멀티 스레드 어플리케이션을 효율적으로 다루기 위해 glibc의 malloc은
 메모리의 다수 영역이 활성화되는 것을 허용한다. 즉, 다른 스레드가 서로 영향을
 주지 않으면서 다른 메모리의 영역에 접근할 수 있다. 이러한 메모리의 영역들은
-아레나라고 통칭한다. 그리고 "메인 아레나 (main arena)"
+아레나라고 통칭한다. 그리고 "메인 아레나 (main arena)"는 애플리케이션의
+초기 힙을 의미한다. Malloc 코드에는 이 아레나를 가리키는 정적 변수가 존재하고,
+각각의 아레나에는 추가된 아레나를 연결하기 위한 next 포인터가 있다.
+
+ 스레드 충돌로 인한 성능에 대한 압박이 증가함에 따라, 추가적인 아레나는
+mmap으로 생성되어 이를 해소한다. 아레나의 개수는 시스템이 가지고 있는
+CPU의 개수의 8배로 제한되고 (사용자가 직접 명시하지 않는한, mallopt를 보라),
+그것은 스레드가 상당히 많은 프로그램의 경우에는 여전히 성능에 대한 긴장이
+있을 것을 의미하지만, 그것에 대한 트레이드 오프 (trade-off)로 적은 파편화
+(fragmentation)가 발생할 것이다.
+
+ 각 아레나 구조체는 아레나에 대한 접근을 제어하는데 사용되는 뮤텍스 (mutex)를
+가진다. 몇몇 연산들, 예를 들면 fastbins에 접근하는 것은, 원자적 연산 (atomic
+operations)으로 이루어질 수 있고 아레나를 잠글 (lock) 필요는 없다. 다른 모든
+연산들은 스레드가 아레나를 잠글 필요가 있는 것들이다. 뮤텍스로 인해 발생하는
+성능에 대한 긴장은 다수의 아레나가 생성되는 이유이다 - 다른 아레나에 접근하는
+스레드는 서로를 기다릴 필요가 없는 것이다. 스레드는 성능과 관련된 것이 요구한다면
+자동적으로 사용되지 않고 있는 (잠기지 않은, unlocked) 아레나로 전환할 것이다.
+
+ 각 아레나는 
 
 # References
-[1] CarlosODonell et al., MallocInternals,
-https://sourceware.org/glibc/wiki/MallocInternals, 2022
+[1] CarlosODonell et al., MallocInternals, glibc wiki, 2022.
+[Online]. Available: https://sourceware.org/glibc/wiki/MallocInternals,
+[Accessed Apr. 08, 2022]
