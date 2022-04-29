@@ -180,8 +180,37 @@ bin ("fastbin")에 추가된 청크들은 인접한 청크와 병합되지 않�
 청크들은 필요하다면 다른 bin들로 옮겨질 수 있다. Fastbin 청크들은, 청크들이
 모두 같은 크기를 가지고 중간 크기는 절대 접근될 일이 없으므로, 단일
 연결 리스트에 저장된다.
-* Unsorted: 
+* Unsorted: 청크들이 해제되면 (free'd) 그들은, 초기에 한 bin에 저장된다.
+그들은 나중에 정렬되고, malloc에서, 이는 빠르게 재사용될 기회를 주기 위한
+것이다. 이는 또한 정렬 로직이 어느 한 시점에만 존재하면 된다는 것을 의미한다 -
+모두가 해제된 청크를 이 bin에 넣고, 그것들은 나중에 정렬될 것이다. 이러한
+"정렬되지 않은 ("unsorted")" bin은 간단히 보통 bins의 첫 번째이다.
+* Small: 일반적인 bins는 모든 청크의 크기가 같은 "작은 ("small")" bins와
+청크의 크기가 범위를 가지는 "거대한 ("large")" bins로 나뉜다. 청크가 이러한
+bins에 추가되면 인접한 청크와 더 거대한 청크를 만들기 위해 "병합"한다. 따라서
+이들은 (비록 fast 또는 unsorted 청크, 그리고 사용 중인 청크와는 인접할 수
+있다고 하더라도) 다른 청크와 절대 인접할 일이 없다. Small 그리고 large 청크들은
+이중으로-연결되며 (doubly-linked) 그렇기에 (그들이 새롭게 해제된 청크와
+병합하는 경우와 같이) 중간에서 삭제될 수 있다.
+* Large: 한 청크가 속한 bin이 다수의 크기를 포함할 때 그 청크는 "거대하다
+("large")". Small bins에서는, 첫 번째 청크를 선택하여 사용하면 된다. Large
+bins에서는, "가장 적절한" 청크를 찾아야 하고, 두 청크 (하나는 사용자가 요청한
+크기, 하나는 그 나머지)로 나누어야 할 수 있다.
 
+<pre><code>
+
+ar_ptr--->[   mutex   ]  |-->[   chunk   ]  |-->[  chunk  ]
+          [ fastbins[]]--+   [    fwd    ]--+   [   fwd   ]
+		  [           ]
+		  [    top    ]
+		  [   bins[]  ]<-| |-->[  chunk  ]<-| |--->[  chunk  ]
+	   /->[           ]--+-+   [   fwd   ]--+-+    [   fwd   ]--------+ 
+      +---[           ]  |-----[   bck   ]  |------[   bck   ]<-------+
+     /    [   next    ]                                               |
+    /	  [ nextfree  ]                                               |
+   /	  [  stats    ]                                               |
+  +-------------------------------------------------------------------+
+</code></pre>
 # References
 [1] Carlos Donell et al., MallocInternals, glibc wiki, 2022.
 [Online]. Available: https://sourceware.org/glibc/wiki/MallocInternals,
