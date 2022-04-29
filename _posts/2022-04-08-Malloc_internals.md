@@ -201,9 +201,9 @@ bins에서는, "가장 적절한" 청크를 찾아야 하고, 두 청크 (하나
 
 ar_ptr--->[   mutex   ]  |-->[   chunk   ]  |-->[  chunk  ]
           [ fastbins[]]--+   [    fwd    ]--+   [   fwd   ]
-		  [           ]
-		  [    top    ]
-		  [   bins[]  ]<-| |-->[  chunk  ]<-| |--->[  chunk  ]
+	[           ]
+	[    top    ]
+	[   bins[]  ]<-| |-->[  chunk  ]<-| |--->[  chunk  ]
 	   /->[           ]--+-+   [   fwd   ]--+-+    [   fwd   ]--------+ 
       +---[           ]  |-----[   bck   ]  |------[   bck   ]<-------+
      /    [   next    ]                                               |
