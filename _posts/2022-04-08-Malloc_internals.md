@@ -159,9 +159,9 @@ operations)으로 이루어질 수 있고 아레나를 잠글 (lock) 필요는 �
         Heap #1             Heap #2            Heap #3
 	 _               |--------------------|
  	/ [ ar_ptr  ]----+---[ ar_ptr   ]<--+ +-[  ar_ptr    ]
-   /  [         ]<---|---[  prev    ]   |---[  prev      ]
-heap  [ prev    ]--+ |   [  size    ]       [  size      ]
-info  [size     ]  | |   [  ....    ]       [   ...      ]
+   /     [         ]<---|---[  prev    ]   |---[  prev      ]
+heap     [ prev    ]--+ |   [  size    ]       [  size      ]
+info     [size     ]  | |   [  ....    ]       [   ...      ]
  	\_[ ...     ]  - |   [   chunks ]       [  chunks    ]
 	  [ arena   ]<---+                      [            ]
 	  [         ]-------------------------->["top" chunk ]
