@@ -14,7 +14,8 @@ title: Malloc 함수의 동작
 >> Arenas와 Heaps
 
 # 개요
- 본 글은 [1]의 번역을 통해 malloc 함수의 동작을 살펴본다.
+ 본 글은 [1]의 일부를 번역하여 malloc 함수의 동작을 살펴보고 그와 관련된
+tcache의 동작을 알아본다.
  
 # MallocInternals 번역
 ## Malloc의 개요
@@ -221,7 +222,22 @@ Large 청크에서 "가장 적절한 것("best fit")"을 찾아야 하기 때문
 추가적인 이중으로-연결된 리스트를 가지며 이는 리스트에서 각 크기 필드를 연결하고,
 청크들은 크기에 따라 큰 것에서 작은 것으로 정렬된다. 이는 충분한 크기를 가지는
 첫 번째 청크를 malloc이 빠르게 검색할 수 있도록 만든다. 이때 주어진 크기에서 다수의
-청크
+청크가 존재한다면, 두 번째 청크가 일반적으로 선택되는데, 그 이유는 다음 크기의
+연결 리스트가 수정될 필요가 없도록 만들기 위함이다.
+
+<pre><code>
+
+[  ...  ]  |-->[ size = 132 ]<-+ [ size = 132 ] +->[ size = 120  ]
+[ bins[]]--+   [    fwd     ]--|>[    fwd     ]-|->[    fwd      ]
+[       ]<-----[    bck     ]<-|-[    bck     ]<|--[    bck      ]
+[  ...  ] +--->[ fd_nextsize]--|----------------+  [ fd_nextsize ]---+
+         /  +--[ bk_nextsize]  +-------------------[ bk_nextsize ]<-+|
+ 		 /  /                                                        ||
+       /  +---------------------------------------------------------+|
+	  +---------------------------------------------------------------+
+
+</code></pre>
+
 # References
 [1] Carlos Donell et al., MallocInternals, glibc wiki, 2022.
 [Online]. Available: https://sourceware.org/glibc/wiki/MallocInternals,
