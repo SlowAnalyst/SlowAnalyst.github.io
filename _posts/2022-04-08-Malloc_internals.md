@@ -281,6 +281,8 @@ counts[]    _
 [          ]  /
 [  ...     ]_/
 
+</code></pre>
+
 # References
 [1] Carlos Donell et al., MallocInternals, glibc wiki, 2022.
 [Online]. Available: https://sourceware.org/glibc/wiki/MallocInternals,
