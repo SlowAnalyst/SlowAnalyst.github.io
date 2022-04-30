@@ -12,6 +12,8 @@ title: Malloc 함수의 동작
 >> Chunk는 무엇인가?
 >>
 >> Arenas와 Heaps
+>>
+>> Thread Local Cache (tcache)
 
 # 개요
  본 글은 [1]의 일부를 번역하여 malloc 함수의 동작을 살펴보고 그와 관련된
@@ -232,11 +234,14 @@ Large 청크에서 "가장 적절한 것("best fit")"을 찾아야 하기 때문
 [       ]<-----[    bck     ]<-|-[    bck     ]<|--[    bck      ]
 [  ...  ] +--->[ fd_nextsize]--|----------------+  [ fd_nextsize ]---+
          /  +--[ bk_nextsize]  +-------------------[ bk_nextsize ]<-+|
- 		 /  /                                                        ||
+  /  /                                                        ||
        /  +---------------------------------------------------------+|
 	  +---------------------------------------------------------------+
 
 </code></pre>
+
+# Thread Local Cache (tcache)
+ 
 
 # References
 [1] Carlos Donell et al., MallocInternals, glibc wiki, 2022.
