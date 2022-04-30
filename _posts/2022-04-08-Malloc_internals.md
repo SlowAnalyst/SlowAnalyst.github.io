@@ -351,7 +351,7 @@ tcache_init(void)
 상대적으로 낮은 주소에 위치하게 된다.
 
 # References
-[1] Carlos Donell et al., MallocInternals, glibc wiki, 2022.
+[1] Carlos Donell et al., "MallocInternals", glibc wiki, 2022.
 [Online]. Available: https://sourceware.org/glibc/wiki/MallocInternals,
 [Accessed Apr. 08, 2022]
 
@@ -359,6 +359,6 @@ tcache_init(void)
 C Library Reference Manual", GNU Press a division of the Free
 Software Foundation, 2021
 
-[3] malloc.c, GNU & Elixir, 2021. [Online]. Available:
+[3] "malloc.c", GNU & Elixir, 2021. [Online]. Available:
 https://elixir.bootlin.com/glibc/glibc-2.34.9000/source/malloc/malloc.c,
 [Accessed Apr. 08, 2022]
