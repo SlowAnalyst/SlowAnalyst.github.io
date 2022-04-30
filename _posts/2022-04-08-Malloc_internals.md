@@ -341,6 +341,11 @@ tcache_init(void)
 }
 ```
 
+ Tcache는 기본값으로 허용되므로 애플리케이션에서 malloc을 통해 메모리를 요청하면
+먼저 tcache를 설정하는 작업이 진행되고 tcache에 저장된 청크를 할당할 것이다.
+이때 tcache는 초기에 malloc을 통해 할당받아 존재하기 때문에 힙 영역에서
+상대적으로 낮은 주소에 위치하게 된다.
+
 # References
 [1] Carlos Donell et al., MallocInternals, glibc wiki, 2022.
 [Online]. Available: https://sourceware.org/glibc/wiki/MallocInternals,
