@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Malloc 함수의 동작
+title: Malloc 내부를 통해 보는 tcache의 동작
 ---
 
 > 개요
@@ -14,6 +14,10 @@ title: Malloc 함수의 동작
 >> Arenas와 Heaps
 >>
 >> Thread Local Cache (tcache)
+>
+> Thread Local Cache (tcache)의 동작
+>
+> References
 
 # 개요
  본 글은 [1]의 일부를 번역하여 malloc 함수가 메모리를 어떤 형태로 다루는지와
@@ -284,7 +288,7 @@ counts[]    _
 
 </code></pre>
 
-# Tcache의 동작
+# Thread Local Cache (tcache)의 동작
  [2, p. 1090]은 '--disable-experimental-malloc' 옵션을 설명하면서
 스레드 별 캐시 (tcache)가 malloc에서 기본값으로 허용됨을 명시하였다.
 
