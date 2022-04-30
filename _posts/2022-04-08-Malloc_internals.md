@@ -16,10 +16,11 @@ title: Malloc 함수의 동작
 >> Thread Local Cache (tcache)
 
 # 개요
- 본 글은 [1]의 일부를 번역하여 malloc 함수의 동작을 살펴보고 그와 관련된
-tcache의 동작을 알아본다.
+ 본 글은 [1]의 일부를 번역하여 malloc 함수가 메모리를 어떤 형태로 다루는지와
+tcache의 동작을 일부 살펴본다.
  
 # MallocInternals 번역
+ 여기서는 [1]의 일부를 번역한 내용을 다룬다.
 ## Malloc의 개요
  GNU C Library (glibc의) 의 malloc 라이브러리는 어플리케이션의 주소 공간에
 할당된 메모리를 관리하는 다양한 함수들을 포함한다. Glibc malloc은
@@ -240,7 +241,7 @@ Large 청크에서 "가장 적절한 것("best fit")"을 찾아야 하기 때문
 
 </code></pre>
 
-# Thread Local Cache (tcache)
+## Thread Local Cache (tcache)
  이 malloc은 멀티 스레드가 있음을 인식하지만 그 인식은 생각보다 그 범위가 넓다 -
 이는 멀티 스레드가 동작 중인지 아닌지를 인식할 수 있다. 이 malloc에는 NUMA
 아키텍처에 대한 최적화, thread locality에 대한 coordinate, 코어에 따른
@@ -283,7 +284,72 @@ counts[]    _
 
 </code></pre>
 
+# Tcache의 동작
+ [2, p. 1090]은 '--disable-experimental-malloc' 옵션을 설명하면서
+스레드 별 캐시 (tcache)가 malloc에서 기본값으로 허용됨을 명시하였다.
+
+ [3]은 다음과 같은 코드를 통해 tcache를 관리하는 구조체가
+tcache_perthread_struct이고, tcache 또한 malloc으로 할당됨을 보인다.
+
+```C
+/* There is one of these for each thread, which contains the
+   per-thread cache (hence "tcache_perthread_struct").  Keeping
+   overall size low is mildly important.  Note that COUNTS and ENTRIES
+   are redundant (we could have just counted the linked list each
+   time), this is for performance reasons.  */
+typedef struct tcache_perthread_struct
+{
+  uint16_t counts[TCACHE_MAX_BINS];
+  tcache_entry *entries[TCACHE_MAX_BINS];
+} tcache_perthread_struct;
+```
+
+```C
+static void
+tcache_init(void)
+{
+  mstate ar_ptr;
+  void *victim = 0;
+  const size_t bytes = sizeof (tcache_perthread_struct);
+
+  if (tcache_shutting_down)
+    return;
+
+  arena_get (ar_ptr, bytes);
+  victim = _int_malloc (ar_ptr, bytes);
+  if (!victim && ar_ptr != NULL)
+    {
+      ar_ptr = arena_get_retry (ar_ptr, bytes);
+      victim = _int_malloc (ar_ptr, bytes);
+    }
+
+
+  if (ar_ptr != NULL)
+    __libc_lock_unlock (ar_ptr->mutex);
+
+  /* In a low memory situation, we may not be able to allocate memory
+     - in which case, we just keep trying later.  However, we
+     typically do this very early, so either there is sufficient
+     memory, or there isn't enough memory to do non-trivial
+     allocations anyway.  */
+  if (victim)
+    {
+      tcache = (tcache_perthread_struct *) victim;
+      memset (tcache, 0, sizeof (tcache_perthread_struct));
+    }
+
+}
+```
+
 # References
 [1] Carlos Donell et al., MallocInternals, glibc wiki, 2022.
 [Online]. Available: https://sourceware.org/glibc/wiki/MallocInternals,
+[Accessed Apr. 08, 2022]
+
+[2] Sandra Loosemore with Richard M. Stallman, et al., "The GNU
+C Library Reference Manual", GNU Press a division of the Free
+Software Foundation, 2021
+
+[3] malloc.c, GNU & Elixir, 2021. [Online]. Available:
+https://elixir.bootlin.com/glibc/glibc-2.34.9000/source/malloc/malloc.c,
 [Accessed Apr. 08, 2022]
