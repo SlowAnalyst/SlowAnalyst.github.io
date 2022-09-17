@@ -511,11 +511,3 @@ libc base address: 00007fb4d4d3fa000
 [2] "malloc.c", GNU, 2020. [Online]. Available: http://ftp.gnu.org/gnu/glibc/glibc-2.31.tar.gz, [Accessed Jul. 02, 2022]
 
 [3] "arena.c", GNU, 2020. [Online]. Available: http://ftp.gnu.org/gnu/glibc/glibc-2.31.tar.gz, [Accessed Jul. 02, 2022]
-
-[4] saelo, "Exploiting Logic Bugs in JavaScript JIT Engines", Phrack, Volume 0x10, Issue 0x46, Phile #0x09, 2021
-
-[5] METASPLOIT, "Adobe Flash Player - NetConnection Type Confusion (Metasploit)", EXPLOIT DATABASE BY OFENSIVE SECURITY, 2015
-
-[6] CPUU, "메모리 취약점:과거, 현재, 미래 (4) Heap Attacks", 2019. [Online]. Available: https://cpuu.postype.com/post/4002575, [Accessed Jul. 03, 2022]
-
-[7] Salman Javaid, "Analysis and Detection of Heap-based Malwares Using Introspection in a Virtualized Environment", University of New Orleans Theses and Dissertations. 1875., 2014
