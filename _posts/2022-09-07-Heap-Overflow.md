@@ -3,10 +3,6 @@ layout: post
 title: Perthread cache (tcache)에서의 UAF와 DFB
 ---
 
-UAF, DFB, Type Confusion, and Heap Spray
-========================================
-
-
 Contents
 --------
 1. Introduction
