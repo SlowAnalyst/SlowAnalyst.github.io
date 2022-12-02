@@ -3,21 +3,17 @@ layout: post
 title: TDES Differential Cryptanalysis
 ---
 
-> 차등 암호분석 개요
->
-> TDES의 Sbox 차이 분석
->
-> 입출력값의 차이를 선택하는 방법
->
-> TDES의 차등 암호분석
->
-> 보조키 비트 복구 알고리즘
->
-> 키 비트를 모두 복구하는 방법
->
-> 블록암호 설계원칙
->
-> References
+
+Contents
+--------
+1. 차등 암호분석 개요
+2. TDES의 Sbox 차이 분석
+3. 입출력값의 차이를 선택하는 방법
+4. TDES의 차등 암호분석
+5. 보조키 비트 복구 알고리즘
+6. 키 비트를 모두 복구하는 방법
+7. 블록암호 설계원칙
+8. References
 
 # 차등 암호분석 개요
  차등 암호분석(Differential Cryptanalysis)은 DES를 분석하기 위해

@@ -3,21 +3,19 @@ layout: post
 title: Malloc 내부를 통해 보는 tcache의 동작
 ---
 
-> 개요
->
-> MallocInternals 번역
->
->> Malloc의 개요
->>
->> Chunk는 무엇인가?
->>
->> Arenas와 Heaps
->>
->> Thread Local Cache (tcache)
->
-> Thread Local Cache (tcache)의 동작
->
-> References
+
+Contents
+--------
+1. 개요
+2. MallocInternals 번역
+  1. Malloc의 개요
+  2. Chunk는 무엇인가?
+  3. Arenas와 Heaps
+  4. Thread Local Cache (tcache)
+3. Thread Local Cache (tcache)의 동작
+4. References
+
+
 
 # 개요
  본 글은 [1]의 일부를 번역하여 malloc 함수가 메모리를 어떤 형태로 다루는지와
