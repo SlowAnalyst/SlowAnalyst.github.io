@@ -87,7 +87,7 @@ struct j_dllnode {
 
 사용자는 이를 데이터에 포함시켜야 한다. 즉, 라이브러리는 사용자가 위 노드 구조체를 데이터에 포함시켰다고 가정한다. 여기서 사용자는 이 라이브러리를 사용하여 애플리케이션을 작성하는 개발자를 말한다.
 
- 이러한 노드 구성은 노드에서 데이터를, 데이터에서 노드를 얻는 방법이 non-intrusive한 노드 구성보다 복잡해지도록 만든다. 일반적인 (generic) 데이터를 이중 연결 리스트에 저장하고자 할 때 이를 구현하는 방법은 주어진 데이터 타입에서 노드의 오프셋을 구하는 것이다. 다만, 여기서 오프셋은 사용자가 적절한 값으로 제공해야만 한다. 여기서 [4, Sec. 7.17]은 구조체 멤버의 (구조체의 시작 주소로부터의) 오프셋을 구하기 위한 offsetof 매크로를 정의한다. 따라서 사용자는 이 매크로를 사용하여 데이터에 포함된 노드 구조체의 오프셋을 제공할 수 있고, 제공해야만 한다. 이 값이 data_offset이라는 attribute로 저장된다고 가정하면, 이로부터 다음과 같이 노드에서 데이터를, 데이터에서 노드를 구하는 함수를 다음과 같이 작성할 수 있다.
+ 이러한 노드 구성은 노드에서 데이터를, 데이터에서 노드를 얻는 방법이 non-intrusive한 노드 구성보다 복잡해지도록 만든다. 일반적인 (generic) 데이터를 이중 연결 리스트에 저장하고자 할 때 이를 구현하는 방법은 주어진 데이터 타입에서 노드의 오프셋을 구하는 것이다. 다만, 여기서 오프셋은 사용자가 적절한 값으로 제공해야만 한다. 여기서 [4, Sec. 7.17]은 구조체 멤버의 (구조체의 시작 주소로부터의) 오프셋을 구하기 위한 offsetof 매크로를 정의한다. 따라서 사용자는 이 매크로를 사용하여 데이터에 포함된 노드 구조체의 오프셋을 제공할 수 있고, 제공해야만 한다. 이 값이 node_offset이라는 attribute로 저장된다고 가정하면, 이로부터 다음과 같이 노드에서 데이터를, 데이터에서 노드를 구하는 함수를 다음과 같이 작성할 수 있다.
  
 ```C
 /* j_dll_get_data: get the data from the node */
@@ -97,7 +97,7 @@ static void *j_dll_get_data(j_dll_t *self, struct j_dllnode *node)
 	j_dll_errno = J_DLL_ERR_INVALID_NODE;
 	return NULL;
     }
-    return ((char *) node - self->data_offset);
+    return ((char *) node - self->node_offset);
 }
 
 /* j_dll_get_node: get the node from the data */
@@ -107,7 +107,7 @@ static struct j_dllnode *j_dll_get_node(j_dll_t *self, void *data)
 	j_dll_errno = J_DLL_ERR_INVALID_DATA;
 	return NULL;
     }
-    return (struct j_dllnode *) ((char *) data + self->data_offset);
+    return (struct j_dllnode *) ((char *) data + self->node_offset);
 }
 ```
 
@@ -145,7 +145,7 @@ typedef struct _j_dll {
      * structure to access the data from the node and the node from
      * the data. And user shall provide this.
      */
-    size_t data_offset;
+    size_t node_offset;
 
     /*
      * User shall provide read, update, and compare methods. Since these will
@@ -189,7 +189,7 @@ typedef int (*j_dllnode_method_t)(j_dll_t *, struct j_dllnode *, void *);
 extern j_dll_t *j_dll_init(j_dllnode_method_t read,
 			   j_dllnode_method_t update,
 			   j_dllnode_method_t compare,
-			   size_t data_offset);
+			   size_t node_offset);
 extern void j_dll_destroy(j_dll_t *dll);
 
 #endif
@@ -227,7 +227,7 @@ static void *j_dll_get_data(j_dll_t *self, struct j_dllnode *node)
 	j_dll_errno = J_DLL_ERR_INVALID_NODE;
 	return NULL;
     }
-    return ((char *) node - self->data_offset);
+    return ((char *) node - self->node_offset);
 }
 
 /* j_dll_get_node: get the node from the data */
@@ -237,7 +237,7 @@ static struct j_dllnode *j_dll_get_node(j_dll_t *self, void *data)
 	j_dll_errno = J_DLL_ERR_INVALID_DATA;
 	return NULL;
     }
-    return (struct j_dllnode *) ((char *) data + self->data_offset);
+    return (struct j_dllnode *) ((char *) data + self->node_offset);
 }
 
 /*
@@ -335,7 +335,7 @@ static int j_dll_update(j_dll_t *self, void *origin, void *new)
 j_dll_t *j_dll_init(j_dllnode_method_t read,
 		    j_dllnode_method_t update,
 		    j_dllnode_method_t compare,
-		    size_t data_offset)
+		    size_t node_offset)
 {
     j_dll_t *dll;
 
@@ -352,7 +352,7 @@ j_dll_t *j_dll_init(j_dllnode_method_t read,
     dll->head = NULL;
     dll->tail = NULL;
     dll->cnt = 0;
-    dll->data_offset = data_offset;
+    dll->node_offset = node_offset;
     dll->mt[J_DLLNODE_READ].method = read;
     dll->mt[J_DLLNODE_UPDATE].method = update;
     dll->mt[J_DLLNODE_COMPARE].method = compare;
