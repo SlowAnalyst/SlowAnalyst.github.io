@@ -6,7 +6,7 @@ author: eveheeero
 date: '2023-01-27 10:40:23 +0530'
 category: ['rust','learning']
 tags: rust
-thumbnail: /assets/img/posts/default.png
+# thumbnail: /assets/img/posts/default.png
 keywords: rust, task, future, context
 usemathjax: false
 permalink: /blog/rust_task-future-context/
