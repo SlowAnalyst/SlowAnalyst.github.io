@@ -9,7 +9,7 @@ title: C/C++ 스레드 프로그래밍
 
 ---
 
-### 스레드는 다음과 같은 방법으로 사용할 수 있다.
+### 스레드는 다음과 같은 방법으로 사용할 수 있다
 
 ```C++
 std::thread ThreadName(ThreadFunc, arg1, arg2, ...);

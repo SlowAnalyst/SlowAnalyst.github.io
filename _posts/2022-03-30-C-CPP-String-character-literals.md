@@ -66,10 +66,10 @@ std::wstring Mystr3 = LR"(This is "REALLY" std::wstring)"s;
 >
 > 간단하게 LoadLibrary함수를 보아도, [LoadLibraryA](<https://docs.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-loadlibrarya>), [LoadLibraryW](<https://docs.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-loadlibraryw>) 로 다양한 인코딩 형식에 대해 지원하는것을 볼 수 있다.
 >
-> 추가적으로 wchar_t*형태를 char*타입으로 변환하는 방법은 stdlib.h의 wcstombs(char *dest, wchar_t *source, size_t count)함수를 사용하면 된다. [IBM](<https://www.ibm.com/docs/ko/i/7.3?topic=functions-wcstombs-convert-wide-character-string-multibyte-string>) [MSDN](<https://docs.microsoft.com/ko-kr/cpp/c-runtime-library/reference/wcstombs-wcstombs-l?view=msvc-170>)
+> 추가적으로 wchar_t*형태를 char*타입으로 변환하는 방법은 stdlib.h의 wcstombs(char *dest, wchar_t*source, size_t count)함수를 사용하면 된다. [IBM](<https://www.ibm.com/docs/ko/i/7.3?topic=functions-wcstombs-convert-wide-character-string-multibyte-string>) [MSDN](<https://docs.microsoft.com/ko-kr/cpp/c-runtime-library/reference/wcstombs-wcstombs-l?view=msvc-170>)
 >
 > 혹은 안전을 위해 사용할 수 없다면 MSDN의 wcstombs_s을 사용할 수 있다. [MSDN](<https://docs.microsoft.com/ko-kr/cpp/c-runtime-library/reference/wcstombs-s-wcstombs-s-l?view=msvc-170>)
 >
-> wcstombs_s(size_t *pReturnValue, char *dest, size_t sizeOfDest, wchar_t *source, size_t size); pReturnValue는 반환된 문자열의 크기를 넣기 위한 포인터이다.
+> wcstombs_s(size_t *pReturnValue, char*dest, size_t sizeOfDest, wchar_t *source, size_t size); pReturnValue는 반환된 문자열의 크기를 넣기 위한 포인터이다.
 >
 > wcstombs -> wide character stream to multi bytes stream(sequence)인것같다?

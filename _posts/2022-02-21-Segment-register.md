@@ -3,8 +3,8 @@ layout: post
 title: "세그먼트 레지스터 변경 방지"
 summary: "세그먼트 레지스터를 바꿔도 가리키는 물리 주소는 변하지 않는다."
 author: eveheeero
-date: '2022-02-21 10:40:23 +0900'
-category: ['reversing', 'learning']
+date: "2022-02-21 10:40:23 +0900"
+category: ["reversing", "learning"]
 tags: reversing
 thumbnail: /assets/img/posts/default.png
 keywords: segment-register, 세그먼트-레지스터, 리버싱
@@ -12,13 +12,12 @@ usemathjax: false
 permalink: /blog/Segment_register/
 ---
 
-
 세그먼트 레지스터는 32비트 프로그램에서 22, 64비트 프로그램에서 0으로 표시되곤 한다. 프로그램이 명령을 실행하거나 할 때, 주소 앞에 붙어 물리적 주소 위치를 계산해주는 역할을 한다.
 하지만 이는 저장할 내용이 많지만 저장할 공간은 부족한 16비트 기반의 운영체제에서 일어나던 일이다. 32비트 이상의 컴퓨터에는 충분한 데이터 공간이 생겼으며, 64비트 프로그램에서는 수백테라바이트 이상의 데이터를 저장하지 않는 이상 데이터 공간이 모자라지 않게 되었다.
 그리하여 32비트부터는 물리적 메모리 주소를 사용하지 않게 되었으며, 필요성에 의해 세그먼트 주소도 사용되지 않게 되었다. (호환성때문에 여전히 존재는 한다.)
 
 여기서 문제. Ss세그먼트가 0x22일 때, 0x10을 곱한 값을 더해줌으로써 물리적 메모리 주소를 계산한다.
-(0x22 * 0x10 + 0x400000)
+(0x22 \* 0x10 + 0x400000)
 하지만 windbg나 여러 디버거로 21:400000을 입력하면 22:400000을 입력한 값과 똑같은 내용이 나온다는것을 알게 되었다.
 추가로 세그먼트 레지스터가 20이어도, 23이어도 같은 값을 표시한다. 그 외에는 메모리를 불러 올 수 없다고 한다. (28과 29도 추가로 동일한 값을 표시한다.)
 
@@ -28,4 +27,5 @@ permalink: /blog/Segment_register/
 덤으로 자신의 범위를 벗어난 메모리를 읽으려 하면 프로그램이 종료되기 때문에, 이를 방지하기 위해서 커널이 보정해 주는 것이기도 하다.
 
 > <https://stackoverflow.com/questions/21165678/why-64-bit-mode-long-mode-doesnt-use-segment-registers>
+>
 > <https://stackoverflow.com/questions/125532/why-cant-i-change-the-value-of-a-segment-register-masm>
