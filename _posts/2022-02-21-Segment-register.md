@@ -27,6 +27,5 @@ permalink: /blog/Segment_register/
 그렇기 때문에 제대로 된 세그먼트 레지스터값 22의 주변, 20~23의 값을 입력하면 자동으로 22로 계산하여 보여주는 것으로 추측된다.
 덤으로 자신의 범위를 벗어난 메모리를 읽으려 하면 프로그램이 종료되기 때문에, 이를 방지하기 위해서 커널이 보정해 주는 것이기도 하다.
 
-
-><https://stackoverflow.com/questions/21165678/why-64-bit-mode-long-mode-doesnt-use-segment-registers>
-><https://stackoverflow.com/questions/125532/why-cant-i-change-the-value-of-a-segment-register-masm>
+> <https://stackoverflow.com/questions/21165678/why-64-bit-mode-long-mode-doesnt-use-segment-registers>
+> <https://stackoverflow.com/questions/125532/why-cant-i-change-the-value-of-a-segment-register-masm>
