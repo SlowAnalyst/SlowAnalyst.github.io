@@ -1,6 +1,15 @@
 ---
 layout: post
-title: 일반적인 (generic) 데이터를 저장하는 이중 연결 리스트
+title: "일반적인 (generic) 데이터를 저장하는 이중 연결 리스트"
+summary: "제네릭 데이터를 저장하는 더블 링크드 리스트"
+author: david232818
+date: '2023-01-01 10:40:23 +0900'
+category: ['learning']
+# tags: 
+thumbnail: /assets/img/posts/default.png
+keywords: linked-list, double-linked-list, generic
+usemathjax: false
+permalink: /blog/Double_Liked_List_for_Generic_data/
 ---
 
 

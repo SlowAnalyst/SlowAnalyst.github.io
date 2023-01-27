@@ -1,6 +1,15 @@
 ---
 layout: post
-title: Rust 자유로운 match 사용법
+title: "Rust - 자유로운 match 사용법"
+summary: "Go와 같은 스타일의 match를 사용하는 방법"
+author: eveheeero
+date: '2023-01-14 10:40:23 +0900'
+category: ['rust','learning']
+tags: rust
+thumbnail: /assets/img/posts/default.png
+keywords: rust, match, void
+usemathjax: false
+permalink: /blog/Rust-Free_match/
 ---
 
 

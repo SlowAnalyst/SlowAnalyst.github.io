@@ -1,6 +1,15 @@
 ---
 layout: post
-title: 세그먼트 레지스터를 바꿔도 가리키는 물리 주소는 변하지 않는다.
+title: "세그먼트 레지스터 변경 방지"
+summary: "세그먼트 레지스터를 바꿔도 가리키는 물리 주소는 변하지 않는다."
+author: eveheeero
+date: '2022-02-21 10:40:23 +0900'
+category: ['reversing', 'learning']
+tags: reversing
+thumbnail: /assets/img/posts/default.png
+keywords: segment-register, 세그먼트-레지스터, 리버싱
+usemathjax: false
+permalink: /blog/Segment_register/
 ---
 
 
