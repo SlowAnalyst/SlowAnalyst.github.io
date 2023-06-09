@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "SurrealDB란 무엇인가?"
-summary: "Rust로 개발된 Surreal DB가 무엇인지 "
+summary: "Rust로 개발된 Surreal DB가 무엇인지"
 author: eveheeero
 date: '2023-05-31 12:47:41 +0900'
 category: ['learning']
