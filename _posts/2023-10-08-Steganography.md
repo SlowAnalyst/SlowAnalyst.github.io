@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Deep dive of Steganography"
+title: "Deep dive into Steganography"
 summary: "Summarize steganography and analyze real-world examples."
 author: bradypus404
 date: '2023-10-08 05:20:01 +0900'
@@ -12,58 +12,58 @@ usemathjax: false
 permalink: /blog/Malware/Steganography
 ---
 
-# 스테가노그래피
+# Steganography
 
-## 개념
+## Definition
 
 - 메시지를 숨겨서 비밀문서를 작성
 
-## 디지털 스테가노그래피
+## Digital Steganography
 
 - 텍스트 파일, 그림 파일, 오디오 파일, 동영상 파일등으로 메시지를 숨김
 - 주로 그림 파일을 대상으로 함
 
-### 오디오 파일 대상
+### Audio File
 
 - 인간의 청각 영역을 벗어난 주파수 대역에 노이즈 형태로 메시지를 삽입
 
-### 이미지 파일 대상
+### Image File
 
 1. Spatial domain : 픽셀을 이용
 2. Transform(or Frequency) domain : Transform, Frequency에 정보를 숨김
 3. Distortion : 이미지 파일을 변형시켜 정보를 숨김, 해독자는 원본 이미지 파일을 가지고 있어야함
 4. Masking and filtering : 이미지의 특정 부분의 밝기나 휘도를 변형시켜 정보를 숨김
 
-## Malware에서 스테가노그래피 사용
+## Use of Steganography in Malware
 
-### 목적
+### Purpose
 
 - 안티 바이러스 SW의 탐지를 피하기 위함
 - 장점 : 기술 구현 쉽고 탐지 어려움
 
-### 같이 사용되는 공격
+### With Uesd Attack
 
 - 말버타이징(Malvertising) 공격
 - Exploit-Kit 공격
 
-### Malware 형태
+### Malware Type
 
 1. Payload라 불리는 최종 악성코드를 설치하는 광정을 숨김
 2. 악성코드를 실행하는데 필요한 Configuration 정보를 숨김
 3. 해커가 운영하는 C&C 서버에서, 감염된 시스템에 전달하는 명령어를 숨김
 4. 감염된 시스템에서 동작하는 Malware가 수집한 정보를, 외부 C&C서버로 보낼때, 정보를숨김
 
-### 실제 사례
+### Real-World Example
 
 - ‘Worok’ 스테가노그래피 기법을 통해 PNG 파일에 Malware 숨김
     
-    **악성코드 유형**
+    **Malware Type**
     
     - 컴퓨터 정보 탈취 악성코드를 위한 PNG 파일
     
     Worok’s complete infection chain
     
-    **동작 방식**
+    **Behavior Method**
     
     1. PNG 파일에 Malware 숨기기
     2. PNG에 Payload 숨기기
