@@ -15,54 +15,8 @@ urls:
     - text: Blog
       url: /blog
 
-# Edit Author details (For multi authors check _data/authors.yml)
-
-author_logo: profile.png
-author: Eveheeero
-author_bio: Eveheeero입니다. 악성코드 전공입니다.
-author_email: "xhve00000@gmail.com"
-author_location: Korea
-author_website_url: "https://eveheeero.com"
 typewrite-text: Malware, Reversing, CVE, Vulnerabilities...
 hero_cover_img: cover.jpg
-
-# Experiences
-author_work_experiences:
-    - company_name: JiranData
-      company_logo: profile.png
-      company_url: https://www.jirandata.co.kr
-      designation: Backend Engineer
-      description: Improved the performance of programs written in multiple languages.
-      visibility: false
-
-# Education
-author_education_details:
-    - college_logo: profile.png
-      college_name: Daejeon Univ
-      college_url: https://www.dju.ac.kr
-      college_degree: 리버싱 및 악성코드 분석 전공
-      description: 정보보안학과 학사
-      visibility: false
-
-# Projects
-author_project_details:
-    - project_thumbnail: profile.png
-      project_title:
-      project_description:
-      project_url:
-      visibility: false
-
-# social links
-twitter_username:
-github_username: eveheeero
-facebook_username:
-linkedin_username:
-behance_username:
-instagram_username:
-medium_username:
-telegram_username:
-dribbble_username:
-flickr_username:
 
 #for comments ( we got Disqus and Hyvor Commenting, uncomment the one you want to use )
 
