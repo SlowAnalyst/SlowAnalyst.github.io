@@ -12,7 +12,7 @@ usemathjax: false
 permalink: /blog/Malware/Steganography
 ---
 
-# Steganography
+# **Steganography**
 
 ## Definition
 
