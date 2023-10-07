@@ -1,6 +1,15 @@
 ---
 layout: post
-title: RedLineStealer
+title: "RedLineStealer Analysis"
+summary: "Analysis of information stealer malware that inserts malware into system processes"
+author: foliv0ra
+date: '2023-10-08 00:50:01 +0900'
+category: ['malware']
+tags: RedLineStealer, Malware
+thumbnail: /assets/img/posts/RedLineStealer/Cover.png
+keywords: malware, reversing
+usemathjax: false
+permalink: /blog/Malware/6be57566a72c81a9336d39b56627c14aa6a04e604954b71a84e83125171a742c
 ---
 
 # Title: Malware Analysis RedLineStealer
