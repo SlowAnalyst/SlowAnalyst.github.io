@@ -2,7 +2,7 @@
 layout: post
 title: "RedLineStealer Analysis"
 summary: "Analysis of information stealer malware that inserts malware into system processes"
-author: foliv0ra
+author: bradypus404
 date: '2023-10-08 00:50:01 +0900'
 category: ['malware']
 tags: RedLineStealer, Malware
