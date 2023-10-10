@@ -35,18 +35,18 @@ Based on VirusTotal, It was uploaded at 2023-09-23 20:58:42 UTC. The Malware tur
 
 File Type: EXE
 
-![Alt text](/assets/img/posts/RedLineStealer/image-2.png)
+![Alt text](/assets/img/posts/RedLineStealer/image-2.png){: width="100%" height="100%"}
 
 ## {Static Analysis}
 ### DIE(Detect It Easy)
 
-![Alt text](/assets/img/posts/RedLineStealer/image.png)
+![Alt text](/assets/img/posts/RedLineStealer/image.png){: width="100%" height="100%"}
 
 - Compiler: Microsoft Visaul C/C++(2017 v.15.5-6)[EXE32], Microsoft Visaul C/C++(2022 v.17.4)[-]
 - Not Packing
 But, When I opened the binary with debbugger, my thoughts changed.
 
-![Alt text](/assets/img/posts/RedLineStealer/image-1.png)
+![Alt text](/assets/img/posts/RedLineStealer/image-1.png){: width="100%" height="100%"}
 
 - Entropy
 
@@ -59,47 +59,47 @@ The code inside the Malware is decrypted and injected into Microsoft.NET's AppLa
 
 1. The front loop is not related to the main function, so it is skipped, and the place where BP is placed is the main function.
 
-![Alt text](/assets/img/posts/RedLineStealer/image-3.png)
+![Alt text](/assets/img/posts/RedLineStealer/image-3.png){: width="100%" height="100%"}
 
 2. In this part, obfuscation techniques are used. If you look closely at the Operand of the jump command, it points to an address that is different from the address value processed in the debugger.
 
-![Alt text](/assets/img/posts/RedLineStealer/image-4.png)
+![Alt text](/assets/img/posts/RedLineStealer/image-4.png){: width="100%" height="100%"}
 
 
 3. When you jump to that address, it is converted to the code below and a new jump is created.
 
-![Alt text](/assets/img/posts/RedLineStealer/image-5.png)
+![Alt text](/assets/img/posts/RedLineStealer/image-5.png){: width="100%" height="100%"}
 
 
 4. Decrypt the values in the encrypted memory dump using xor and add.
 
-![Alt text](/assets/img/posts/RedLineStealer/image-11.png)
+![Alt text](/assets/img/posts/RedLineStealer/image-11.png){: width="100%" height="100%"}
 
 
 5. If you run it dynamically and perform decryption, you can see that an EXE (header: 4D 5A) file like the memory has been created.
 
-![Alt text](/assets/img/posts/RedLineStealer/image-12.png)
+![Alt text](/assets/img/posts/RedLineStealer/image-12.png){: width="100%" height="100%"}
 
 
 6. In the createprocessW API, the 6th Argument is saved as 4, which is the argument value that tells AppLaunch.exe to run and pause. The binary value created here is later injected into AppLaunch.exe.
 
-![dbg CreateprocessW](/assets/img/posts/RedLineStealer/image-8.png)
-![Alt text](/assets/img/posts/RedLineStealer/image-10.png)
+![dbg CreateprocessW](/assets/img/posts/RedLineStealer/image-8.png){: width="100%" height="100%"}
+![Alt text](/assets/img/posts/RedLineStealer/image-10.png){: width="100%" height="100%"}
 
 % Reference link: https://learn.microsoft.com/ko-kr/windows/win32/api/processthreadsapi/nf-processthreadsapi-createprocessw
 
-![CreateprocessW](/assets/img/posts/RedLineStealer/image-7.png)
-![Alt text](/assets/img/posts/RedLineStealer/image-9.png)
+![CreateprocessW](/assets/img/posts/RedLineStealer/image-7.png){: width="100%" height="100%"}
+![Alt text](/assets/img/posts/RedLineStealer/image-9.png){: width="100%" height="100%"}
 
 
 7. Execute the NTWriteVirtualMemory function and insert the code in the memory into AppLaunch.exe as mentioned above.
 
-![Alt text](/assets/img/posts/RedLineStealer/image-13.png)
+![Alt text](/assets/img/posts/RedLineStealer/image-13.png){: width="100%" height="100%"}
 
 
 8. As a result of monitoring using Process Explorer, it was confirmed that AppLaunch.exe, which had been inserted with code presumed to be malicious code, was executed and immediately paused as mentioned above.
 
-![Alt text](/assets/img/posts/RedLineStealer/image-14.png)
+![Alt text](/assets/img/posts/RedLineStealer/image-14.png){: width="100%" height="100%"}
 
 
 In the next task, we analyze AppLaunch.exe, which has malicious actions inserted into it. :)
