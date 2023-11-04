@@ -4,4 +4,4 @@ permalink: /robots.txt
 ---
 User-agent: *
 Allow: /
-Sitemap: https://eveheeero.github.io/sitemap.xml
+Sitemap: https://slowanalyst.github.io/sitemap.xml

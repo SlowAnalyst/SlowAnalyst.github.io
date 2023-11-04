@@ -3,7 +3,7 @@ subtitle: 이번주도 다음주도 그 다음주도 공부
 description: >- # this means to ignore newlines until "baseurl:"
     Malware, Reversing, CVE, Vulnerabilities...
 
-url: "https://eveheeero.github.io" # the base hostname & protocol for your site, e.g. https://example.github.io
+url: "https://slowanalyst.github.io" # the base hostname & protocol for your site, e.g. https://example.github.io
 baseurl: "" # the subpath of your site, e.g. /blog
 
 # Navigation
