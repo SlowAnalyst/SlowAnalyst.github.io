@@ -1,5 +1,13 @@
 ---
-title: Dog Sniffing The Network -- Monitor Mode To Wireless Frame Analysis
+layout: post
+title: "Dog Sniffing The Network: Monitor Mode To Wireless Frame Analysis"
+summary: ""
+author: david232818
+category: ['learning']
+thumbnail: /assets/img/posts/default.png
+keywords: monitor mode, wireless frame analysis
+usemathjax: false
+permalink: /blog/Monitor-Mode-To-Wireless-Frame-Analysis
 ---
 
 
