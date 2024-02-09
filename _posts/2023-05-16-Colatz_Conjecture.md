@@ -8,7 +8,7 @@ category: ['learning']
 # tags: 
 thumbnail: /assets/img/posts/default.png
 keywords: Colatz Conjecture, bit
-usemathjax: false
+usemathjax: true
 permalink: /blog/Colatz_Conjecture/
 ---
 
