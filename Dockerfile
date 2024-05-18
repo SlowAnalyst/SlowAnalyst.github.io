@@ -7,6 +7,7 @@ ADD . /srv/jekyll
 RUN gem install bundler && \
     rm -rf Gemfile.lock && \
     chmod -R 777 ${PWD} && \
+    touch Gemfile && \
     bundle update && \
     bundle install
     # jekyll build && \
