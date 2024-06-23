@@ -1,8 +1,9 @@
 ---
 layout: post
-title: "K8s 환경에서의 Fractional GPU에 대한 분석"
+title: "Analysis about Fractional GPU on Kubernetes"
 summary: ""
 author: dps0340
+date: '2024-06-23 14:50:00 +0900'
 category: ['learning']
 thumbnail: /assets/img/posts/default.png
 keywords: devops, kubernetes, gpu
