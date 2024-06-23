@@ -83,24 +83,24 @@ Core / VRAM 단위의 자원 격리의 경우 Open Source 기반으로 연동할
 
 ## References
 
-https://github.com/NVIDIA/nvidia-docker
+(https://github.com/NVIDIA/nvidia-docker)
 
-https://github.com/NVIDIA/nvidia-container-toolkit
+(https://github.com/NVIDIA/nvidia-container-toolkit)
 
-https://github.com/NVIDIA/gpu-operator
+(https://github.com/NVIDIA/gpu-operator)
 
-https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/1.10.0/user-guide.html#gpu-enumeration
+(https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/1.10.0/user-guide.html#gpu-enumeration)
 
-https://github.com/NVIDIA/gpu-operator/blob/main/deployments/gpu-operator/values.yaml#L258
+(https://github.com/NVIDIA/gpu-operator/blob/main/deployments/gpu-operator/values.yaml#L258)
 
-https://docs.run.ai/v2.17/Researcher/scheduling/GPU-time-slicing-scheduler/
+(https://docs.run.ai/v2.17/Researcher/scheduling/GPU-time-slicing-scheduler/)
 
-https://developer.nvidia.com/blog/improving-gpu-utilization-in-kubernetes/
+(https://developer.nvidia.com/blog/improving-gpu-utilization-in-kubernetes/)
 
-https://docs.nvidia.com/datacenter/tesla/mig-user-guide/
+(https://docs.nvidia.com/datacenter/tesla/mig-user-guide/)
 
-https://docs.nvidia.com/datacenter/cloud-native/kubernetes/latest/index.html
+(https://docs.nvidia.com/datacenter/cloud-native/kubernetes/latest/index.html)
 
-https://github.com/grgalex/nvshare
+(https://github.com/grgalex/nvshare)
 
-https://github.com/AliyunContainerService/gpushare-scheduler-extender
+(https://github.com/AliyunContainerService/gpushare-scheduler-extender)
