@@ -7,7 +7,7 @@ category: ['learning']
 thumbnail: /assets/img/posts/default.png
 keywords: devops, kubernetes, gpu
 usemathjax: false
-permalink: /blog/Lets-Use-Fractional-GPU
+permalink: /blog/Analysis-about-Fractional-GPU-on-Kubernetes
 ---
 
 
