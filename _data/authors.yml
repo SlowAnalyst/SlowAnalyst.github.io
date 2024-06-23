@@ -31,3 +31,14 @@ bradypus404:
     social: 
         - title: "github"
           url: "https://github.com/bradypus404"
+
+dps0340:
+  name: DPS0340
+  username: dps0340
+  bio: "배고픈 DevOps"
+  site: https://github.com/DPS0340
+  avatar: dps0340.png
+  email: optional.int@kakao.com
+  social:
+      - title: "github"
+        url: "https://github.com/DPS0340"
