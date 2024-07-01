@@ -20,7 +20,7 @@ hero_cover_img: cover.jpg
 
 #for comments ( we got Disqus and Hyvor Commenting, uncomment the one you want to use )
 
-disqus_shortname: eveheeero
+disqus_shortname: slowanalyst
 # hyvor_talk_website_id: 476
 
 # mailchimp embedded form url (newsletter):
