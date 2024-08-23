@@ -21,6 +21,7 @@ Contents
 3. Wireless Frame Anaylsis
    1. Radiotap header
    2. IEEE 802.11 frame
+   3. Channel hopping
 4. Conclusion
 0. References
 
