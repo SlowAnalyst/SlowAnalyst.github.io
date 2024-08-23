@@ -955,7 +955,7 @@ __rmqueue_pcplist() /* Remove page from the per-cpu list, caller must protect th
 rmqueue_bulk() /* Obtain a specified number of elements from the buddy allocator */
 ```
 
-위 call trace를 살펴보면, slab의 초기 할당에서는 page allocator (zoned buddy allocator)로부터 페이지를 할당받는 것이 분명해보인다. 특히 per-cpu의 page list (linked list)가 비어있을 때는 buddy allocator로부터 페이지를 얻어올 것이다. 여기서는 slab fastpath를 살펴보도록 하겠다. 먼저 `get_freepointer_safe()`와 `slab_alloc_node()`의 구현을 읽어보면 slab cache의 `freelist`에 `s->obffset`를 더하여 할당할 오브젝트의 주소를 얻음을 알 수 있다. 그리고 여기에 KASLR이 활성화될 경우 추가적인 연산 (`freelist_ptr()`을 참고하라)이 수행된다.
+위 call trace를 살펴보면, slab의 초기 할당에서는 page allocator (zoned buddy allocator)로부터 페이지를 할당받는 것이 분명해보인다. 특히 per-cpu의 page list (linked list)가 비어있을 때는 buddy allocator로부터 페이지를 얻어올 것이다. 여기서는 slab fastpath를 살펴보도록 하겠다. 먼저 `get_freepointer_safe()`와 `slab_alloc_node()`의 구현을 읽어보면 slab cache의 `freelist`에 `s->offset`를 더하여 할당할 오브젝트의 주소를 얻음을 알 수 있다. 그리고 여기에 KASLR이 활성화될 경우 추가적인 연산 (`freelist_ptr()`을 참고하라)이 수행된다.
 
 ```c
 /* mm/slub.c */
