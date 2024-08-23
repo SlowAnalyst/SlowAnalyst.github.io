@@ -612,7 +612,7 @@ $3 = {
 gef> 
 ```
 
-##SLUB allocator and SKB allocation
+## SLUB allocator and SKB allocation
 
 SLUB allocator는 기존에 사용되던 SLAB allocator의 대안으로 제시되었으며, slab을 특정 오브젝트로 구성된 페이지의 그룹으로 바라본다. 이러한 slab은 그 자체로는 freelist를 관리하지 않는다. 그래서 freelist를 관리하기 위한 데이터를 페이지 구조체에 저장한다[1].
 
