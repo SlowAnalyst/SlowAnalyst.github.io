@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Rust
+title: Go
 permalink: /blog/categories/go/
 ---
 
