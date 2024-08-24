@@ -29,7 +29,7 @@ Jeff Bonwick이 SLAB allocator를 소개하고 Christoph Lameter가 SLUB allocat
 
 ## Per-CPU
 
-Symmetric multiprocessing system에서 다수의 CPU들이 핸들링하게 되는 데이터는 락으로 인한 병목이나 cache line bouncing 등을 초래할 수 있다. 이에 리눅스 커널 등은 각 CPU local에 가용한 데이터 공간을 두어 성능 저하를 최소화한다. 즉, CPU 마다 lockless하게 접근할 수 있는 공간을 두는 것이다.
+Symmetric multiprocessing system에서 다수의 CPU들이 핸들링하게 되는 데이터는 락으로 인한 병목이나 cache line bouncing 등을 초래할 수 있다. 이에 리눅스 커널 등은 각 CPU local에 가용한 데이터 공간을 두어 성능 저하를 최소화한다. 즉, CPU 마다 lockless하게 접근할 수 있는 공간을 두는 것이다[3].
 
 
 
