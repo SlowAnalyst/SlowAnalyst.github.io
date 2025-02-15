@@ -1,15 +1,15 @@
 ---
 layout: post
-title: "CVE-2024-39705: 파이썬 역직렬화 원격 코드 실행 취약점"
+title: "파이썬 역직렬화 원격 코드 실행 취약점"
 summary: "파이썬 역역직렬화 원격 코드 실행 취약점 분석"
 author: eveheeero
 date: '2025-02-15 15:17:00 +0900'
-category: ['cve', 'learning']
-tags: cve
+category: ['etc', 'learning']
+tags: rce
 thumbnail: /assets/img/posts/default.png
-keywords: cve, python, pickle
+keywords: rce, python, pickle
 usemathjax: false
-permalink: /blog/CVE-2024-39705/
+permalink: /blog/python-deserialization-rce/
 ---
 
 
