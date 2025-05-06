@@ -38,7 +38,7 @@ docker run --rm --pull always --name surrealdb -p 8000:8000 surrealdb/surrealdb:
 
 SurrealDB 설치 후 커멘드로 실행해보았습니다.
 
-![SurrealDB 실행 모습](/assets/img/posts/2023-05-31-0.png){: width="100%" height="100%"}
+![SurrealDB 실행 모습](/assets/img/posts/2023-05-31-0.png){: style="max-width: 100%; height: auto;"}
 
 실행해보니 다른 디비와 마찬가지로, 실행한 창에서는 커멘드를 입력할 수 없었습니다. \(데이터베이스를 자주 다루지 않아서 미숙합니다.\)
 
@@ -84,7 +84,7 @@ select * from human
 select * from human:hero
 ```
 
-![기본적인 데이터 삽입](/assets/img/posts/2023-05-31-2.png){: width="100%" height="100%"}
+![기본적인 데이터 삽입](/assets/img/posts/2023-05-31-2.png){: style="max-width: 100%; height: auto;"}
 
 CREATE를 사용했을 때 데이터가 들어가는것으로 보아, 다른 데이터베이스를 쓰다가 오면 호환성 작업이 조금 필요할 것 같지만, 테이블을 미리 정의해 둘 필요가 없기 때문에 유연하게 데이터 사용이 가능해 보입니다.
 
