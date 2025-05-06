@@ -23,7 +23,7 @@ UMassCTF 2025 Bullet Dodge 문제를 푸는 중 `Unity`게임을 크랙하는 �
 
 ## 문제 상황
 
-![어려운 총알 피하기 게임 화면](/assets/img/posts/2025-04-27-0.png){: max-width="100%"}
+![어려운 총알 피하기 게임 화면](/assets/img/posts/2025-04-27-0.png){: style="max-width: 100%"}
 
 게임 클리어를 위해서는 `1000000`점을 얻어야 하지만 총알이 너무 빠르고 점수 필요 량이 너무 많아 클리어하기 힘들다.
 
@@ -39,29 +39,29 @@ UMassCTF 2025 Bullet Dodge 문제를 푸는 중 `Unity`게임을 크랙하는 �
 
 C#에서 주로 사용하는 `System.Core.dll` 파일로 검색을 하면 쉽게 찾을 수 있다.
 
-![dll이 들어간 폴더](/assets/img/posts/2025-04-27-1.png){: max-width="100%"}
+![dll이 들어간 폴더](/assets/img/posts/2025-04-27-1.png){: style="max-width: 100%"}
 
 이후 게임 파일을 찾아야 한다. 일반적으로 `Assembly-CSharp.dll` 파일이라고 하지만 다른 파일인 경우도 있다.
 
 찾으면 해당 파일을 `dnSpy`로 열어서 코드를 살펴본다.
 
-![dnSpy로 연 내용](/assets/img/posts/2025-04-27-2.png){: max-width="100%"}
+![dnSpy로 연 내용](/assets/img/posts/2025-04-27-2.png){: style="max-width: 100%"}
 
 해당 내용에서 이름이 적힌 내용은 일반적으로 라이브러리를 사용한 부분이다. 디버깅 정보가 없어 _로 표시된 부분을 살펴봐야 한다.
 
-![수정하기 원하는 코드](/assets/img/posts/2025-04-27-3.png){: max-width="100%"}
+![수정하기 원하는 코드](/assets/img/posts/2025-04-27-3.png){: style="max-width: 100%"}
 
 주로 클래스들의 `Update`함수 로직을 살펴보면서, 어떤 값을 사용하는지 확인해서
 
-![수정한 코드드](/assets/img/posts/2025-04-27-4.png){: max-width="100%"}
+![수정한 코드드](/assets/img/posts/2025-04-27-4.png){: style="max-width: 100%"}
 
 `우클릭 -> Edit Class`를 통해 코드를 수정한 뒤
 
-![dnSpy 저장화면](/assets/img/posts/2025-04-27-5.png){: max-width="100%"}
+![dnSpy 저장화면](/assets/img/posts/2025-04-27-5.png){: style="max-width: 100%"}
 
 `파일 -> Save...`를 통해 저장 후 게임 실행시 수정된 코드가 적용된다.
 
-![게임 클리어 화면면](/assets/img/posts/2025-04-27-6.png){: max-width="100%"}
+![게임 클리어 화면면](/assets/img/posts/2025-04-27-6.png){: style="max-width: 100%"}
 
 잘 적용되어 죽지 않고 점수도 빠르게 올라간다.
 
