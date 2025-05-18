@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Flask session decode"
-summary: "러스트 에러 정보 내부 콜스택 추가하기"
+summary: "플라스크 세션 값 복호화"
 author: eveheeero
 date: '2025-05-18 22:25:00 +0900'
 category: ['etc', 'learning']
