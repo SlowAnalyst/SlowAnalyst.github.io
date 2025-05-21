@@ -6,7 +6,7 @@ author: wHoIsDReAmer
 date: '2025-05-21 15:27:00 +0900'
 category: ['etc', 'learning']
 tags: cve
-thumbnail: /assets/img/posts/2025-05-21-4.png
+thumbnail: /assets/img/posts/2025-05-21-0.png
 keywords: ctf, cve, vulnerability
 usemathjax: false
 permalink: /blog/JWT-Volunerabillity/
