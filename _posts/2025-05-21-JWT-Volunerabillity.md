@@ -2,7 +2,7 @@
 layout: post
 title: "JWT Base64 URL Encoded 취약점"
 summary: "JWT Base64 URL Encoded 취약점"
-author: wHoIsDReAmer
+author: whoisdreamer
 date: '2025-05-21 15:27:00 +0900'
 category: ['etc', 'learning']
 tags: cve
