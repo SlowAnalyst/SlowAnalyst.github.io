@@ -42,3 +42,14 @@ dps0340:
   social:
       - title: "github"
         url: "https://github.com/DPS0340"
+
+whoisdreamer:
+    name: 이찬욱
+    username: whoisdreamer
+    site: https://whoisdreamer.github.io/blog
+    avatar: whoisdreamer.png
+    bio: "지식 쌓고 공유하는 것을 즐깁니다"
+    email: neverprogrammer@gmail.com
+    social:
+        - title: "github"
+          url: "https://github.com/wHoIsDReAmer"
