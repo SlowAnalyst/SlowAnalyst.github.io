@@ -9,7 +9,7 @@ tags: ctf
 thumbnail: /assets/img/posts/2025-05-20-4.png
 keywords: ctf, reversing, android
 usemathjax: false
-permalink: /blog/flask-session-decode/
+permalink: /blog/byuctf2025-baby-android1/
 ---
 
 

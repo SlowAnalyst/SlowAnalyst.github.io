@@ -1,15 +1,15 @@
 ---
 layout: post
-title: "[byuctf2025] Baby Android 2"
-summary: "동적 라이브러리 형태 안드로이드 리버싱"
+title: "[byuctf2025] Wembsoncket"
+summary: "크로스 사이트 웹소켓 하이재킹"
 author: eveheeero
-date: '2025-05-20 15:31:00 +0900'
-category: ['reversing', 'learning']
+date: '2025-05-22 15:31:00 +0900'
+category: ['etc', 'learning']
 tags: ctf
 thumbnail: /assets/img/posts/2025-05-20-9.png
-keywords: ctf, reversing, android
+keywords: ctf, websocket, CSWSH, Hijacking
 usemathjax: false
-permalink: /blog/flask-session-decode/
+permalink: /blog/byuctf2025-baby-android2/
 ---
 
 
