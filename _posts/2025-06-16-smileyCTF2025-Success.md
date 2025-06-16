@@ -6,7 +6,7 @@ author: eveheeero
 date: '2025-06-16 13:20:00 +0900'
 category: ['etc', 'learning']
 tags: ctf
-thumbnail: /assets/img/posts/default.png
+thumbnail: /assets/img/posts/2025-06-16-0.png
 keywords: ctf
 usemathjax: false
 permalink: /blog/smileyctf2025-success/
