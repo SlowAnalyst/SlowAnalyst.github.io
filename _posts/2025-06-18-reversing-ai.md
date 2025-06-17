@@ -3,7 +3,7 @@ layout: post
 title: "리버싱에서의 AI 사용"
 summary: "AI에게 맡긴 디컴파일된 코드 분석"
 author: eveheeero
-date: '2025-06-18 14:40:00 +0900'
+date: '2025-06-18 02:40:00 +0900'
 category: ['reversing', 'learning']
 tags: ctf
 thumbnail: /assets/img/posts/2025-06-18-0.png
