@@ -5,9 +5,9 @@ summary: "AI에게 맡긴 디컴파일된 코드 분석"
 author: eveheeero
 date: '2025-06-18 02:40:00 +0900'
 category: ['reversing', 'learning']
-tags: ctf
+tags: reversing
 thumbnail: /assets/img/posts/2025-06-18-0.png
-keywords: ctf
+keywords: reversing
 usemathjax: false
 permalink: /blog/reversing-ai/
 ---
