@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "운영체제 별 파일 시스템 저널 읽기"
-summary: "파일 시스템 저널"
+summary: "저널링 파일 시스템 리서치"
 author: eveheeero
 date: '2025-06-24 05:31:00 +0900'
 category: ['forensic', 'learning']
@@ -72,9 +72,16 @@ csv옵션을 통해 저널을 출력하고 나면 다음처럼 파일이 드랍�
 
 `ext4`에 대해 제대로 저널 표시되고 있습니다.
 
+이후 `logdump -a`를 통해 확인된 `FS block`을 `block_dump 1234...` 등을 통해 어던 내용이 실제로 적혔는지 확인 가능합니다.
+
+![block_dump 내용](/assets/img/posts/2025-06-24-5.png){: style="max-width: 100%; height: auto;"}
+
+이외에도 ext관련 파일 시스템에 대한 여러 명령어가 있어서 `man debugfs`로 확인해보면 좋을 듯 합니다.
+
 ## 작성자의 글
 
 - 윈도우는 보기 편하게 해주는 반면 리눅스는 순정 상태의 저널 그대로를 보여주네요
+- 특정 파일에 대해 수정된 기록을 보려면 프로그래밍적으로 api로 구현하거나 해야 할 듯 합니다.
 
 ## 참조
 
