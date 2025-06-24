@@ -31,7 +31,9 @@ permalink: /blog/file-system-journal/
 
 ### 윈도우
 
-윈도우의 경우, 윈도우에서 자체 지원해주는 `fsutil`을 통해 저널을 확인할 수 있습니다.
+#### USN (기록용 로그)
+
+윈도우 Usn의 경우, `fsutil usn`을 통해 저널을 확인할 수 있습니다.
 
 `$UsnJrnl`의 파일을 읽어 파싱하는 타 응용 프로그램과 동일한 데이터를 다루는 것으로 예상됩니다.
 
@@ -55,6 +57,20 @@ csv옵션을 통해 저널을 출력하고 나면 다음처럼 파일이 드랍�
 ![fsutil journal 내용](/assets/img/posts/2025-06-24-1.png){: style="max-width: 100%; height: auto;"}
 
 해당 파일엔 N MB용량의 파일 수정 기록이 나오게 됩니다.
+
+#### ntfs transaction (수정용 저널)
+
+파일 수정용 저널의 경우 `$LogFile`에 기록됩니다. 해당 관련 내용은 자세하게 적혀있지 않아 참고 영역을 참조하시면 좋습니다.
+
+| 관련 분석 툴로 `NTFS Log Tracker`, `Windows Journal Parser`, `LogFileParser`이 있다고 합니다. [windows forensic yum_yum tistory](https://yum-history.tistory.com/285)을 참조해주세요.
+
+`$LogFile`을 보기 위해 윈도우에서 기본적으로 제공되는 툴은 아직 찾지 못했으며, `FTK Imager` 혹은 `Autospy`를 사용해 파일을 구한 후, [`NTFS Log Tracker`](https://sites.google.com/site/forensicnote/ntfs-log-tracker)을 사용하겠습니다.
+
+![autospy logfile dump](/assets/img/posts/2025-06-24-6.png){: style="max-width: 100%; height: auto;"}
+
+![ntfs log tracker](/assets/img/posts/2025-06-24-7.png){: style="max-width: 100%; height: auto;"}
+
+제대로 보이고 있습니다.
 
 ### 리눅스
 
@@ -82,8 +98,12 @@ csv옵션을 통해 저널을 출력하고 나면 다음처럼 파일이 드랍�
 
 - 윈도우는 보기 편하게 해주는 반면 리눅스는 순정 상태의 저널 그대로를 보여주네요
 - 특정 파일에 대해 수정된 기록을 보려면 프로그래밍적으로 api로 구현하거나 해야 할 듯 합니다.
+- `NTFS Log Tracker`가 글 작성일로부터 2일 전에 업데이트가 됐네요, 정말 감사한 마음입니다.
 
 ## 참조
 
 - [MSDN](https://learn.microsoft.com/ko-kr/windows-server/administration/windows-commands/fsutil-usn)
+- [ntfs kci](https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART001455925)
+- [ntfs.com](https://www.ntfs.com/transaction.htm)
+- [windows forensic yum_yum tistory](https://yum-history.tistory.com/285)
 - [Linux stackoverflow](https://stackoverflow.com/questions/11114575/accessing-ext3-ext4-journals)
