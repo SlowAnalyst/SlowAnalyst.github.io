@@ -21,11 +21,13 @@ permalink: /blog/file-system-journal/
 ## 요약
 
 - 윈도우 : `fsutil usn readJournal C: csv`
+- 윈도우 트랜젝션 로그 : `FTK Imager`로 `$LogFile` 확인
 - 리눅스 : `debugfs -R 'logdump -a' /dev/sda1`
+- 리눅스 데이터 저널링 : `tune2fs`로 설정 필요
 
 ## 문제 상황
 
-데이터베이스 저널링 구현 중 커널 시스템의 저널링 파일 시스템에 대해 연구하게 되었습니다.
+데이터베이스 성능 개선중 커널 시스템의 저널링 파일 시스템에 대해 연구하게 되었습니다.
 
 ## 분석 과정
 
