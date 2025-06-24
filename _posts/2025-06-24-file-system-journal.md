@@ -94,6 +94,37 @@ csv옵션을 통해 저널을 출력하고 나면 다음처럼 파일이 드랍�
 
 이외에도 ext관련 파일 시스템에 대한 여러 명령어가 있어서 `man debugfs`로 확인해보면 좋을 듯 합니다.
 
+#### 저널링 모드 및 데이터 저널
+
+ext4는 세가지 저널링 모드가 있습니다.
+
+- journal - 데이터까지 기록되는 저널링 (성능이 느려짐)
+- journal_ordered - 데이터 제외, 메타데이터만 저널링(기본)
+- journal_writeback - writeback모드
+
+어떤 모드가 적용되었는지는 `dmesg | grep EXT4`입력시 확인 가능하며, 다음과 같은 문구가 포함됩니다.
+
+- journal - `...with journalled data mode...`
+- journal_ordered - `...with ordered data mode...`
+- journal_writeback - ??
+
+적용 및 수정은 다음처럼 할 수 있습니다.
+
+`tune2fs -O has_journal -o journal_data /dev/sda1`
+
+- `has_journal` - 저널 사용, `^has_journal`시 저널 미사용
+- `journal_data` - 데이터 저널링 사용, `journal_data_ordered` 및 `journal_data_writeback` 사용 가능, `man tune2fs` 참조
+
+| 재부팅 필요
+
+저널 로그에 제대로 기록되는 모습입니다.
+
+| 작성한 내용은 `abcdefttt\nlowpo`입니다.
+
+| 전용 분석 툴이 있지 않을까 싶습니다.
+
+![입력한 데이터가 기록된 모습](/assets/img/posts/2025-06-24-8.png){: style="max-width: 100%; height: auto;"}
+
 ## 작성자의 글
 
 - 윈도우는 보기 편하게 해주는 반면 리눅스는 순정 상태의 저널 그대로를 보여주네요
