@@ -4,7 +4,7 @@ title: "유니티 게임 파일 변조법"
 summary: "정적 수정을 통한 유니티 게임 크래킹"
 author: eveheeero
 date: '2025-04-27 12:35:00 +0900'
-category: ['reversing', 'learning']
+category: ['reversing', 'ctf', 'learning']
 tags: ctf
 thumbnail: /assets/img/posts/2025-04-27-0.png
 keywords: ctf, unity, reversing, cracking, hacking

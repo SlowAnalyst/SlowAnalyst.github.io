@@ -4,7 +4,7 @@ title: "[smileyctf2025] Success"
 summary: "smileyctf2025 success 리버싱 문제풀이"
 author: eveheeero
 date: '2025-06-16 13:20:00 +0900'
-category: ['etc', 'learning']
+category: ['ctf', 'learning']
 tags: ctf
 thumbnail: /assets/img/posts/2025-06-16-0.png
 keywords: ctf

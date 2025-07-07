@@ -4,7 +4,7 @@ title: "파이썬 역직렬화 원격 코드 실행 취약점"
 summary: "파이썬 역역직렬화 원격 코드 실행 취약점 분석"
 author: eveheeero
 date: '2025-02-15 15:17:00 +0900'
-category: ['etc', 'learning']
+category: ['etc', 'ctf', 'learning']
 tags: rce
 thumbnail: /assets/img/posts/default.png
 keywords: rce, python, pickle

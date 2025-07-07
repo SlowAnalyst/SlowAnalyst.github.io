@@ -4,7 +4,7 @@ title: "해시 원본 값 구하기"
 summary: "해시 결과값을 통해 원본 값을 구하는 법"
 author: eveheeero
 date: '2025-05-10 20:48:00 +0900'
-category: ['etc', 'learning']
+category: ['etc', 'ctf', 'learning']
 tags: ctf
 thumbnail: /assets/img/posts/default.png
 keywords: ctf, hash, md5

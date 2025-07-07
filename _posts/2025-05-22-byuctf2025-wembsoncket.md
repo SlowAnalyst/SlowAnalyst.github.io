@@ -4,7 +4,7 @@ title: "[byuctf2025] Wembsoncket"
 summary: "크로스 사이트 웹소켓 하이재킹"
 author: eveheeero
 date: '2025-05-22 15:24:00 +0900'
-category: ['etc', 'learning']
+category: ['ctf', 'learning']
 tags: ctf
 thumbnail: /assets/img/posts/2025-05-22-0.png
 keywords: ctf, websocket, CSWSH, Hijacking

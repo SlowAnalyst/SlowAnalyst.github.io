@@ -4,7 +4,7 @@ title: "[byuctf2025] Baby Android 2"
 summary: "동적 라이브러리 형태 안드로이드 리버싱"
 author: eveheeero
 date: '2025-05-20 15:31:00 +0900'
-category: ['reversing', 'learning']
+category: ['reversing', 'ctf', 'learning']
 tags: ctf
 thumbnail: /assets/img/posts/2025-05-20-9.png
 keywords: ctf, reversing, android
