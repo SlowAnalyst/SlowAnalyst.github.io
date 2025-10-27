@@ -6,7 +6,7 @@ author: eveheeero
 date: '2025-10-27 23:42:00 +0900'
 category: ['reversing', 'learning']
 tags: reversing
-thumbnail: /assets/img/posts/default.png
+thumbnail: /assets/img/posts/2025-10-27-0.png
 keywords: reversing
 usemathjax: false
 permalink: /blog/android-recompile-signing/
