@@ -3,7 +3,9 @@ layout: post
 title: "Example Of HLS Packets"
 summary: ""
 author: david232818
+date: '2025-11-09 15:47:00 +0900'
 category: ['learning']
+tags: HLS
 thumbnail: /assets/img/posts/default.png
 keywords: HLS
 usemathjax: false
