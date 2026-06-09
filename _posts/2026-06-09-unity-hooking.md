@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "유니티 게임에서 dll injection 후 게임 내부 요소 조절"
-summary: "유니티 게임에서 dll injection 후 게임 내부 요소 조절"
+title: "유니티 게임에서 스레드 생성으로 게임 내부 요소 조절"
+summary: "유니티 게임에서 스레드 생성으로 후 게임 내부 요소 조절"
 author: eveheeero
 date: '2026-06-09 14:36:00 +0900'
 category: ['reversing', 'learning']
